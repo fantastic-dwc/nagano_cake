@@ -1,2 +1,8 @@
-<h1>Public::Products#show</h1>
-<p>Find me in app/views/public/products/show.html.erb</p>
+<%= image_tag @product.product_image %>
+<h1><%= @product.name %></h1>
+<h4><%= @product.introduction %></h4>
+<h3>¥<%= @product.price*1.10 %></h3>(税込) <!--税込価格表記方法要確認-->
+<%= form_with model: @cart_product do |f| %>
+  <%= f.select :quantity, [["1","1"],["2","2"],["3","3"]], include_blank: "選択してください" %>
+  <%= f.submit 'カートに入れる'　%>
+<% end %>
