@@ -7,60 +7,62 @@
         <%= render "public/shared/error_messages", resource: resource %>
 
         <div class="m-2 form-inline">
-          <div class="col-md-2">名前</div>
-          <div class="field form-inline">
+          <div class="col-md-4">名前</div>
+          <div class="col-md-3 field form-inline">
             <%= f.label :last_name, "(姓)" %>
             <%= f.text_field :last_name, autofocus: true %>
           </div>
-          <div class="field form-inline">
+          <div class="col-md-3 field form-inline">
             <%= f.label :first_name, "(名)" %>
             <%= f.text_field :first_name %>
           </div>
         </div>
 
-       <div class="m=2 form-inline">
-          <div class="col-md-2">フリガナ</div>
-          <div class="field form-inline">
+        <div class="m=2 form-inline">
+          <div class="col-md-4">フリガナ</div>
+          <div class="col-md-3 field form-inline">
             <%= f.label :last_name_kana, "(セイ)" %>
             <%= f.text_field :last_name_kana %>
           </div>
-          <div class="field form-inline">
+          <div class="col-md-3 field form-inline">
             <%= f.label :first_name_kana, "(メイ)" %>
             <%= f.text_field :first_name_kana %>
           </div>
         </div>
 
-        <div class="field m-2 form-inline">
-          <%= f.label :email, "メールアドレス" %><br />
-          <%= f.email_field :email, autocomplete: "email" %>
+        <div class="row field m-2 form-inline">
+          <%= f.label :email, "メールアドレス",class: "col-md-4" %><br />
+          <%= f.email_field :email, autocomplete: "email",class: "col-md-6" %>
+        </div>
+
+        <div class="row field m-2 form-inline">
+          <%= f.label :postcode, "郵便番号(ハイフンなし)", class: "col-md-4" %>
+          <%= f.text_field :postcode, class: "col-md-2" %>
+        </div>
+
+        <div class="row field m-2 form-inline">
+          <%= f.label :address, "住所", class: "col-md-4" %>
+          <%= f.text_field :address, class: "col-md-6" %>
+        </div>
+
+        <div class="row field m-2 form-inline">
+          <%= f.label :tel, "電話番号(ハイフンなし)", class: "col-md-4" %>
+          <%= f.telephone_field :tel, class: "col-md-4" %>
         </div>
 
         <div class="field m-2 form-inline">
-          <%= f.label :postcode, "郵便番号(ハイフンなし)" %>
-          <%= f.text_field :postcode %>
+          <div class="col-md-4 form-inline">
+            <%= f.label :password, "パスワード" %>
+            <% if @minimum_password_length %>
+              (<%= @minimum_password_length %> 文字以上)
+            <% end %><br />
+          </div>
+          <%= f.password_field :password, autocomplete: "new-password", class: "col-md-4" %>
         </div>
 
-        <div class="field m-2 form-inline">
-          <%= f.label :address, "住所" %>
-          <%= f.text_field :address %>
-        </div>
-
-        <div class="field m-2 form-inline">
-          <%= f.label :tel, "電話番号(ハイフンなし)" %>
-          <%= f.telephone_field :tel %>
-        </div>
-
-        <div class="field m-2 form-inline">
-          <%= f.label :password, "パスワード" %>
-          <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> 文字以上)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "new-password" %>
-        </div>
-
-        <div class="field m-2 form-inline">
-          <%= f.label :password_confirmation, "パスワード(確認用)" %>
-          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <div class="row field m-2 form-inline">
+          <%= f.label :password_confirmation, "パスワード(確認用)" , class: "col-md-4"%>
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-md-4" %>
         </div>
 
         <div class="actions">
