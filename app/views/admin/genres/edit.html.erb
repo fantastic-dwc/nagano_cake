@@ -1,10 +1,10 @@
-<div class="ml-5 pl-5">
+<div class="ml-5 pl-5 pt-5">
 <h3 class="ml-5">ジャンル編集</h3>
 
 <%= form_with model: @genre, url: admin_genre_path(@genre), method: :patch do |f| %>
-<div class="px-5 mx-5">
-  <a>ジャンル名</a>
-  <a><%= f.text_field :name %></a>
-  <a><%= f.submit '変更を保存', class: "btn btn-secondary" %></a>
+<div class="px-4 form-inline">
+  <div class="mt-5">ジャンル名</div>
+  <div class="pl-5 mt-5"><%= f.text_field :name %></div>
+  <div class="pl-5 mt-5"><%= f.submit '変更を保存', class: "btn btn-secondary" %></div>
 <% end %>
 </div>
