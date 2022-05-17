@@ -1,1 +1,36 @@
 <h3><%= @customer.last_name %> <%= @customer.first_name %>さんの会員情報編集</h3>
+ <%= form_with model: @customer, method: :patch do |customer| %>
+     <div class="form-inline">
+         <%= customer.label :id,"会員ID" %>
+         <%= @customer.id %>
+     </div>
+     <div class="form-inline">
+         <p>氏名</p>
+         <%= customer.text_field :last_name %>
+         <%= customer.text_field :first_name %>
+     </div>
+     <div class="form-inline">
+         <p>フリガナ</p>
+         <%= customer.text_field :last_name_kana %>
+         <%= customer.text_field :first_name_kana %>
+     </div>
+     <div class="form-inline">
+         <%= customer.label :postcode, "郵便番号" %>
+         <%= customer.text_field :postcode %>
+     </div>
+     <div class="form-inline">
+         <%= customer.label :address, "住所" %>
+         <%= customer.text_field :address %>
+     </div>
+     <div class="form-inline">
+         <%= customer.label :tel, "電話番号" %>
+         <%= customer.telephone_field :tel %>
+     </div>
+     <div class="form-inline">
+         <%= customer.label :email %>
+         <%= customer.email_field :email %>
+     </div>
+         <%= button_tag type: "submit", class: "btn btn-success" do %>
+          変更を保存
+         <% end %>
+ <% end %>
