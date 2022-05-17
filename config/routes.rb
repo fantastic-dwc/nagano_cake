@@ -1,15 +1,5 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'homes/top'
-  end
-  namespace :public do
-    get 'homes/top'
-    get 'homes/about'
-  end
-  namespace :public do
-    get 'products/index'
-    get 'products/show'
-  end
+
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
   }
