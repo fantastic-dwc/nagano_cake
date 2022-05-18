@@ -1,5 +1,7 @@
 <div class='container px-5 px-sm-0'>
   <div class="row">
+      <div><%= link_to '+', new_admin_product_path, class: 'btn btn-outline-dark' %></div>
+
       <h1>商品一覧</h1>
       <table class="table">
         <thead>
@@ -17,8 +19,14 @@
             <td><%= f.id %></td>
             <td><%= link_to f.name, admin_product_path(f) %></td>
             <td><%= f.price %></td>
-            <td></td>
-            <td></td>
+            <td><%= f.genre.name %></td>
+            <td align="left">
+              <% if f.is_active %>
+                <span>販売中</span>
+              <% else %>
+                <span>販売停止中</span>
+              <% end %>
+            </td>
           </tr>
           <% end %>
         </tbody>
