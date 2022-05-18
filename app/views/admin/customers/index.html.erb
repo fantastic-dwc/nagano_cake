@@ -2,7 +2,7 @@
   <div class="row">
     <div class="mx-auto">
       <h4>会員一覧</h4>
-      <table>
+      <table class="table">
         <thead>
           <tr>
             <th>会員ID</th>
@@ -21,7 +21,12 @@
                 <% end %>
               </td>
               <td><%= customer.email %></td>
-              <td><%= customer.is_deleted %></td>
+              <td><% if customer.is_deleted %>
+                   <span class="text-secondary">退会</span>
+                  <% else %>
+                   <span class="text-success">有効</span>
+                  <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>
