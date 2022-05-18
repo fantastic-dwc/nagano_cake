@@ -4,6 +4,8 @@
 　　　<h1>商品詳細</h1>
 　　　<% if @product.product_image.attached? %>
 　　　<%= image_tag @product.product_image, size: '200x200' %>
+　　　<% else %>
+　　　<%= image_tag 'no_image', size: '200x200' %>
 　　　<% end %>
 　　</div>
 　　<div class='col-md-8 offset-md-1'>
@@ -18,15 +20,20 @@
 　　    </tr>
 　　    <tr>
 　　      <th>ジャンル</th>
-　　      <td></td>
+　　      <td><%= @product.genre.name %></td>
 　　    </tr>
 　　    <tr>
 　　      <th>税込価格<br>（税抜価格）</th>
-　　      <td><%= @product.price %>円</td>
+　　      <td><%= (@product.price * 1.1).floor %>(<%= @product.price %>)円</td>
 　　    </tr>
 　　    <tr>
 　　      <th>販売ステータス</th>
-　　      <td></td>
+　　      <td><% if @product.is_active %>
+　　        <span>販売中</span>
+　　        <% else %>
+　　        <span>販売停止中</span>
+　　        <% end %>
+　　      </td>
 　　    </tr>
 　　  </table>
 　　  <%= link_to '編集する', edit_admin_product_path(@product), class: "btn btn-success" %>
