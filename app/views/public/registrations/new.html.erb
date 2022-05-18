@@ -30,22 +30,22 @@
           </div>
         </div>
 
-        <div class="row field m-2 form-inline">
+        <div class="field m-2 form-inline">
           <%= f.label :email, "メールアドレス",class: "col-md-4" %><br />
           <%= f.email_field :email, autocomplete: "email",class: "col-md-6" %>
         </div>
 
-        <div class="row field m-2 form-inline">
+        <div class="field m-2 form-inline">
           <%= f.label :postcode, "郵便番号(ハイフンなし)", class: "col-md-4" %>
           <%= f.text_field :postcode, class: "col-md-2" %>
         </div>
 
-        <div class="row field m-2 form-inline">
+        <div class="field m-2 form-inline">
           <%= f.label :address, "住所", class: "col-md-4" %>
           <%= f.text_field :address, class: "col-md-6" %>
         </div>
 
-        <div class="row field m-2 form-inline">
+        <div class="field m-2 form-inline">
           <%= f.label :tel, "電話番号(ハイフンなし)", class: "col-md-4" %>
           <%= f.telephone_field :tel, class: "col-md-4" %>
         </div>
@@ -60,18 +60,18 @@
           <%= f.password_field :password, autocomplete: "new-password", class: "col-md-4" %>
         </div>
 
-        <div class="row field m-2 form-inline">
+        <div class="field m-2 form-inline">
           <%= f.label :password_confirmation, "パスワード(確認用)" , class: "col-md-4"%>
           <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "col-md-4" %>
         </div>
 
-        <div class="actions">
-          <%= f.submit "新規登録" , class: "btn btn-success" %>
+        <div class="actions m-2">
+          <%= f.submit "新規登録" , class: "btn btn-success col-md-offset-6" %>
         </div>
       <% end %>
 
-      <h3>既に登録済みの方</h3>
-      <%= render "public/shared/links" %>
+      <h3 class="mt-7">既に登録済みの方</h3>
+        <%= render "public/shared/links" %>
     </div>
   </div>
 </div>
