@@ -6,6 +6,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def new
+    @order_new = Order.new
+    @customer = current_customer
+  end
+
+  def create
   end
 
   def confirm
