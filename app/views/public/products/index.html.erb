@@ -1,14 +1,26 @@
-<div class='container px-5 px-sm-0'>
+<div class='container'>
   <div class='row'>
     <div class='col-md-12'>
       <h1>商品一覧</h1>
-      <% @products.each do |product| %>
-        <%= link_to product_path(product) do %>
-          <%= image_tag product.product_image, size: "100x100" %>
-          <%= product.name %>
-          ¥<%= product.price %>
-        <% end %>
-      <% end %>
+      <div card="card-group">
+        <div class="card">
+          <% @products.each do |product| %>
+            <div class="card w-25 mt-4 shadow-lg">
+            <%= link_to product_path(product) do %>
+              <%= image_tag product.get_product_image, size: "200x200", class:"card-img-top";  %>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-12">
+                      <p class="card-title"><%= product.name %></p>
+                      <p class="card-text">¥<%= product.price %></p>
+                    </div>
+                  </div>
+                </div>
+            <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

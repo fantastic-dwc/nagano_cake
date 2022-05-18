@@ -9,4 +9,10 @@ class Product < ApplicationRecord
   def get_product_image
     (product_image.attached?) ? product_image : 'no_image.jpg'
   end
+
+  validates :name, presence: true
+  validates :introduction, presence: true
+  validates :genre_id, presence: true
+  validates :price, presence: true
+
 end
