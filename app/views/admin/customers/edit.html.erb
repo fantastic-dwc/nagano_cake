@@ -15,29 +15,36 @@
        </div>
        <div class="form-group">
         <%= customer.label :last_name,"氏名" %>
-        <td valign="top"><%= customer.text_field :last_name %></td>
-        <td valign="top"><%= customer.text_field :first_name %></td>
+        <%= customer.text_field :last_name %>
+        <%= customer.text_field :first_name %>
        </div>
        <div class="form-group">
          <%= customer.label :last_name_kana,"フリガナ" %>
-         <td valign="top"><%= customer.text_field :last_name_kana %></td>
-         <td valign="top"><%= customer.text_field :first_name_kana %></td>
+         <%= customer.text_field :last_name_kana %>
+         <%= customer.text_field :first_name_kana %>
        </div>
        <div class="form-group">
          <%= customer.label :postcode,"郵便番号" %>
-         <td valign="top"><%= customer.text_field :postcode %></td>
+         <%= customer.text_field :postcode %>
        </div>
        <div class="form-group">
          <%= customer.label :address,"住所" %>
-         <td valign="top"><%= customer.text_field :address %></td>
+         <%= customer.text_field :address %>
        </div>
        <div class="form-group">
          <%= customer.label :tel,"電話番号" %>
-         <td valign="top"><%= customer.telephone_field :tel %></td>
+         <%= customer.telephone_field :tel %>
        </div>
        <div class="form-group">
          <%= customer.label :email,"メールアドレス" %>
-         <td valign="top"><%= customer.email_field :email %></td>
+         <%= customer.email_field :email %>
+       </div>
+       <div class="form-group">
+         <%= customer.label :is_deleted, "会員ステータス" %>
+         <%= customer.radio_button :is_deleted, :false %>
+         <%= customer.label :is_deleted, "有効" %>
+         <%= customer.radio_button :is_deleted, :true %>
+         <%= customer.label :is_deleted, "退会" %>
        </div>
            <%= button_tag type: "submit", class: "btn btn-success" do %>
             変更を保存
