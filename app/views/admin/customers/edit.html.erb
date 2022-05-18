@@ -1,36 +1,46 @@
-<h3><%= @customer.last_name %> <%= @customer.first_name %>さんの会員情報編集</h3>
- <%= form_with model: @customer, method: :patch do |customer| %>
-     <div class="form-inline">
+<div class="container">
+  <h4><%= @customer.last_name %> <%= @customer.first_name %>さんの会員情報編集</h4>
+  <% if @customer.errors.any? %>
+     <%= @customer.errors.count %>件のエラーが発生しました
+     <ul>
+       <% @customer.errors.full_messages.each do |message| %>
+         <li><%= message %></li>
+       <% end %>
+     </ul>
+  <% end %>
+   <%= form_with model: @customer, url: {controller: 'admin/customers', action: 'update' } do |customer| %>
+       <div class="form-group">
          <%= customer.label :id,"会員ID" %>
          <%= @customer.id %>
-     </div>
-     <div class="form-inline">
-         <p>氏名</p>
-         <%= customer.text_field :last_name %>
-         <%= customer.text_field :first_name %>
-     </div>
-     <div class="form-inline">
-         <p>フリガナ</p>
-         <%= customer.text_field :last_name_kana %>
-         <%= customer.text_field :first_name_kana %>
-     </div>
-     <div class="form-inline">
-         <%= customer.label :postcode, "郵便番号" %>
-         <%= customer.text_field :postcode %>
-     </div>
-     <div class="form-inline">
-         <%= customer.label :address, "住所" %>
-         <%= customer.text_field :address %>
-     </div>
-     <div class="form-inline">
-         <%= customer.label :tel, "電話番号" %>
-         <%= customer.telephone_field :tel %>
-     </div>
-     <div class="form-inline">
-         <%= customer.label :email %>
-         <%= customer.email_field :email %>
-     </div>
-         <%= button_tag type: "submit", class: "btn btn-success" do %>
-          変更を保存
-         <% end %>
- <% end %>
+       </div>
+       <div class="form-group">
+        <%= customer.label :last_name,"氏名" %>
+        <td valign="top"><%= customer.text_field :last_name %></td>
+        <td valign="top"><%= customer.text_field :first_name %></td>
+       </div>
+       <div class="form-group">
+         <%= customer.label :last_name_kana,"フリガナ" %>
+         <td valign="top"><%= customer.text_field :last_name_kana %></td>
+         <td valign="top"><%= customer.text_field :first_name_kana %></td>
+       </div>
+       <div class="form-group">
+         <%= customer.label :postcode,"郵便番号" %>
+         <td valign="top"><%= customer.text_field :postcode %></td>
+       </div>
+       <div class="form-group">
+         <%= customer.label :address,"住所" %>
+         <td valign="top"><%= customer.text_field :address %></td>
+       </div>
+       <div class="form-group">
+         <%= customer.label :tel,"電話番号" %>
+         <td valign="top"><%= customer.telephone_field :tel %></td>
+       </div>
+       <div class="form-group">
+         <%= customer.label :email,"メールアドレス" %>
+         <td valign="top"><%= customer.email_field :email %></td>
+       </div>
+           <%= button_tag type: "submit", class: "btn btn-success" do %>
+            変更を保存
+           <% end %>
+   <% end %>
+</div>
