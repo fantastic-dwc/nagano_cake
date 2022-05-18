@@ -1,0 +1,20 @@
+  <li>
+  <%= link_to customer_path(current_customer),class: 'nav-link text-light' do %>
+  マイページ
+  <% end %>
+  </li>
+  <li>
+  <%=  link_to products_path,class: 'nav-link text-light' do %>
+  商品一覧
+  <% end %>
+  </li>
+  <li>
+  <%=  link_to cart_products_path ,class: 'nav-link text-light' do %>
+  カート
+  <% end %>
+  </li>
+  <li>
+  <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light' do %>
+  ログアウト
+  <% end %>
+  </li>
