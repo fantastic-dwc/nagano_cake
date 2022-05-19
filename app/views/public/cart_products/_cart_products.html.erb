@@ -1,0 +1,22 @@
+<table class="table">
+  <thead>
+    <th>商品名</th>
+    <th>単価(税込)</th>
+    <th>小計</th>
+    <th></th>
+  </thead>
+  <tbody>
+  <% cart_products.each do |cart_product| %>
+      <tr>
+        <td></td>
+        <td><%= cart_product.product.with_tax_price %></td>
+        <td><%= cart_product.subtotal %></td>
+        <td><% @合計金額 +=  cart_product.subtotal %></td>
+      </tr>
+  </tbody>
+</table>
+<div class="form-inline">
+  <div align="left"><%= link_to "買い物を続ける", root_path, class="btn btn-primary" %></div>
+  <div align="right">合計金額入れる</div>
+</div>
+<% end %>
