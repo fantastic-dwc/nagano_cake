@@ -1,7 +1,59 @@
-<h1>注文情報確認</h1>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
 
-  <table class="table">
-    <thead>
-      
-    </thead>
-  </table>
+    <h1>注文情報確認</h1>
+
+      <% @order_products.each do |f| %>
+       <div class='col-md-8'>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>商品名</th>
+              <th>単価(税込)</th>
+              <th>数量</th>
+              <th>小計</th>
+              </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= f.name %></td>
+              <td><%= (f.price * 1.1).floor %></td>
+              <td><%= f.quantity %></td>
+              <td><%= (f.price * 1.1).floor * f.quantity %></td>
+            </tr>
+          </tbody>
+        </table>
+       </div>
+
+       <div class='col-md-3 offset-md-1'>
+        <table class="table">
+          <tr>
+            <th>送料</th>
+            <td><%= @fee %></td>
+          </tr>
+          <tr>
+            <th>商品合計</th>
+            <td><%= @total_price += (f.price * 1.1).floor * f.quantity) %></td>
+          </tr>
+          <tr>
+            <th>請求金額</th>
+            <td><%= @total_price + @fee %></td>
+          </tr>
+        </table>
+       </div>
+      <% end %>
+
+      <table class="table">
+        <tr>
+          <th>支払方法</th>
+          <td></td>
+        </tr>
+        <tr>
+          <th>お届け先</th>
+          <td></td>
+        </tr>
+      </table>
+
+    <%= link_to "注文を確定する", confirm_path, class: 'btn btn-success' %>
+  </div>
+</div>

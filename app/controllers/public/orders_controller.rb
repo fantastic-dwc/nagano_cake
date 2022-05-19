@@ -15,7 +15,9 @@ class Public::OrdersController < ApplicationController
 
   def confirm
     @order = Order.new(order_params)
-
+    @order_products = current_customer.order_products.all
+    @total_price = 0
+    @fee = 800
     # @order
     if params[:order][:select_address] == "0"
       @order.name = current_customer.first_name + current_customer.last_name
