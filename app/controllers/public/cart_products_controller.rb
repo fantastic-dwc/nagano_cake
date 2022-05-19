@@ -8,11 +8,11 @@ class Public::CartProductsController < ApplicationController
   end
 
   def create
-    @product = Product.find(params[:id])
-    if current_customer.cart_products.find(@product.id)
+    @product = Product.find(params[:cart_product][:product_id])
+    if current_customer.cart_products.find_by(product_id: @product.id).present?
       @cart_product = current_customer.cart_products.find(@product.id)
       @new_cart_product = CartProduct.new(cart_product_params)
-      @cart_product.amount += @new_cart_product.amount
+      @cart_product.quantity += @new_cart_product.quantity
       @cart_product.save
       flash[:notice] = "カートに商品が追加されました"
       redirect_to cart_products_path
