@@ -17,11 +17,13 @@ Rails.application.routes.draw do
     get "/customers/unsubscribe" => "public/customers#unsubscribe", as: "unsubscribe"
     patch "/customers/withdrawal" => "public/customers#withdrawal", as: "withdrawal"
   end
+  
 
-  resources :cart_products, only:[:index,:create,:update,:destroy] do
+  resources :cart_products, only:[:index,:create,:update,:destroy], controller: "public/cart_products" do
     delete "/cart_products/destroy_all" => "public/cart_products#destroy_all", as: "destroy_all"
   end
 
+  
   post "/orders/confirm" => "public/orders#confirm", as: "confirm"
   get "/orders/complete" => "public/orders#complete", as: "complete"
   resources :orders, only:[:index,:show,:new,:create], controller: "public/orders" do
