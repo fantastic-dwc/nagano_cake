@@ -1,27 +1,27 @@
-<div class='container'>
-  <div class='row'>
-    <div class='col-md-2'>
-      <%= form_tag products_path, method: :get do %>
+<%= form_tag products_path, method: :get do %>
+  <div class='container'>
+    <div class='row'>
+      <div class='col-md-2'>
         <table class="table">
-            <tr><td><%= link_to "全商品", products_path %></td></tr>
-              <% @genres.each do |genre| %>
-              <tr>
-                <td><%= link_to genre.name, products_path(name: genre.id) %></td>
-              </tr>
-              <% end %>
+          <tr><td><%= link_to "全商品", products_path %></td></tr>
+            <% @genres.each do |genre| %>
+            <tr>
+              <td><%= link_to genre.name, products_path(name: genre.id) %></td>
+            </tr>
+            <% end %>
         </table>
-    </div>
-    <div class='col-md-10'>
+      </div>
+      <div class='col-md-10'>
         <h1>商品一覧</h1>
-        <div card="card-group">
-          <div class="card">
+        <div class="care-group">
+        <div class="row no-padding card-wrapper">
             <% @products.each do |product| %>
               <div class="card w-25 mt-4 shadow-lg">
               <%= link_to product_path(product) do %>
                 <%= image_tag product.get_product_image, size: "200x200", class:"card-img-top";  %>
                   <div class="card-body">
                     <div class="row">
-                      <div class="col-12">
+                      <div class="col-md-12">
                         <p class="card-title"><%= product.name %></p>
                         <p class="card-text">¥<%= product.price %></p>
                       </div>
@@ -30,9 +30,9 @@
               <% end %>
               </div>
             <% end %>
-          </div>
         </div>
-      <% end %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+<% end %>
