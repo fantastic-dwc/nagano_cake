@@ -7,7 +7,7 @@ class Public::OrdersController < ApplicationController
 
   def new
     @order_new = Order.new
-    @customer = current_customer
+    
   end
 
   def create
