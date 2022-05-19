@@ -23,7 +23,7 @@
 　　      <td>¥<%= (@product.price * 1.1).floor %></td>
 　　    </tr>
   　　    <tr>
-          <%= form_with model: @cart_product do |f| %>
+          <%= form_with model: @cart_product, url: cart_products_path, method: :post do |f| %>
             <%= f.hidden_field :customer_id, :value => current_customer.id %>
             <%= f.hidden_field :product_id, :value => @product.id %>
             <%= f.select :quantity, *[1..10], include_blank: "選択してください" %>
