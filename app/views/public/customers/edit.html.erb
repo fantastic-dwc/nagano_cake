@@ -1,2 +1,53 @@
-<h1>Public::Customers#edit</h1>
-<p>Find me in app/views/public/customers/edit.html.erb</p>
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <h2>会員情報修正</h2>
+
+      <%= form_with model: @customer do |f| %>
+
+        <table class="table m-5">
+          <tr>
+            <th style="width: 30%">　名前</th>
+            <td>
+              <%= f.label :last_name, "(姓)" %>
+              <%= f.text_field :last_name, autofocus: true %>
+              <%= f.label :first_name, "(名)" %>
+              <%= f.text_field :first_name %>
+            </td>
+          </tr>
+          <tr>
+            <th>　フリガナ</th>
+            <td>
+              <%= f.label :last_name_kana, "(セイ)" %>
+              <%= f.text_field :last_name_kana %>
+              <%= f.label :first_name_kana, "(メイ)" %>
+              <%= f.text_field :first_name_kana %>
+            </td>
+          </tr>
+          <tr>
+            <th><%= f.label :email, "メールアドレス",class: "col-md-4" %></th>
+            <td><%= f.email_field :email, autocomplete: "email",class: "col-md-7" %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :tel, "電話番号", class: "col-md-4" %></br>(ハイフン無し)</th>
+            <td><%= f.telephone_field :tel, class: "col-md-3" %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :postcode, "郵便番号", class: "col-md-4" %></br>(ハイフン無し)</th>
+            <td><%= f.text_field :postcode, class: "col-md-3" %></td>
+          </tr>
+          <tr>
+            <th><%= f.label :address, "住所", class: "col-md-4" %></th>
+            <td><%= f.text_field :address, class: "col-md-7" %></td>
+          </tr>
+        </table>  
+        
+        <div class="actions m-2">
+          <%= f.submit "編集内容を保存" , class: "btn btn-success col-md-offset-6" %>
+        </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
