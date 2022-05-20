@@ -11,12 +11,12 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
     if @customer.update(customer_params)
       flash[:notice] = "You have updated book successfully."
-      redirect_to customer_path(current_customer)
+      redirect_to my_page_path
     else
       render :edit
     end
   end
-  
+
   def customer_params
     params.require(:customer).permit(:last_name,:first_name,:last_name_kana,:first_name_kana,:postcode,:address,:tel)
   end
