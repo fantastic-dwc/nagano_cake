@@ -22,9 +22,9 @@ Rails.application.routes.draw do
     delete "/cart_products/destroy_all" => "public/cart_products#destroy_all", as: "destroy_all"
   end
 
+  post "/orders/confirm" => "public/orders#confirm", as: "confirm"
+  get "/orders/complete" => "public/orders#complete", as: "complete"
   resources :orders, only:[:index,:show,:new,:create], controller: "public/orders" do
-    post "/orders/confirm" => "public/orders#confirm", as: "confirm"
-    get "/orders/complete" => "public/orders#complete", as: "complete"
   end
 
   resources :shipping_addresses, only:[:index,:edit,:create,:update,:destroy]
