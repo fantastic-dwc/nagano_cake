@@ -10,7 +10,7 @@ class Public::CartProductsController < ApplicationController
   def create
     @product = Product.find(params[:cart_product][:product_id])
     if current_customer.cart_products.find_by(product_id: @product.id).present?
-      @cart_product = current_customer.cart_products.find(@product.id)
+      @cart_product = current_customer.cart_products.find_by(product_id: @product.id)
       @new_cart_product = CartProduct.new(cart_product_params)
       @cart_product.quantity += @new_cart_product.quantity
       @cart_product.save
