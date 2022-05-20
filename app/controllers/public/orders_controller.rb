@@ -11,14 +11,20 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    @order = Order.new(order_params)
+    if @order.save
+      redirect_to complete_path
+    else
+      render 'confirm'
+    end
   end
 
   def confirm
     @order = Order.new(order_params)
     @order_products = current_customer.order_products.all
+    # order_products.allではなくcart_products.allかもしれない。実際に動かして確認。
     @total_price = 0
-    @fee = 800
-    # @order
+    @fee = shipping_fee = 800
     if params[:order][:select_address] == "0"
       @order.name = current_customer.first_name + current_customer.last_name
       @order.postcode = current_customer.postcode
