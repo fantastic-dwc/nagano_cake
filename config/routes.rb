@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  
+  get "/customers/my_page" => "public/customers#show", as: "my_page"
+  get "/customers/edit" => "public/customers#edit", as: "edit_customers"
+  patch "customers" => "public/customers#update"
+  get "/customers/unsubscribe" => "public/customers#unsubscribe", as: "unsubscribe"
+  patch "/customers/withdrawal" => "public/customers#withdrawal", as: "withdrawal"
 
   devise_for :admin, skip: [:registrations, :passwords], controllers: {
     sessions: "admin/sessions"
@@ -12,12 +18,6 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
   get "/about" => "public/homes#about", as: "about"
   resources :products, only:[:index,:show], controller: "public/products"
-
-  resources :customers, only:[:show,:edit,:update], controller: "public/customers" do
-
-    get "/customers/unsubscribe" => "public/customers#unsubscribe", as: "unsubscribe"
-    patch "/customers/withdrawal" => "public/customers#withdrawal", as: "withdrawal"
-  end
 
   resources :cart_products, only:[:index,:create,:update,:destroy], controller: "public/cart_products" do
     delete "/cart_products/destroy_all" => "public/cart_products#destroy_all", as: "destroy_all"
