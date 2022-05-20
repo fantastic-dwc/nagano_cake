@@ -25,7 +25,7 @@ class Public::CartProductsController < ApplicationController
       else
         @cart_products = CartProduct.all
         flash[:notice] = "商品の個数を選択してください"
-        render 'public/items/show'
+        render 'public/products/show'
       end
     end
   end
