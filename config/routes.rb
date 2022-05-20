@@ -13,7 +13,8 @@ Rails.application.routes.draw do
   get "/about" => "public/homes#about", as: "about"
   resources :products, only:[:index,:show], controller: "public/products"
 
-  resources :customers, only:[:show,:edit,:update] do
+  resources :customers, only:[:show,:edit,:update], controller: "public/customers" do
+
     get "/customers/unsubscribe" => "public/customers#unsubscribe", as: "unsubscribe"
     patch "/customers/withdrawal" => "public/customers#withdrawal", as: "withdrawal"
   end
@@ -27,8 +28,8 @@ Rails.application.routes.draw do
   resources :orders, only:[:index,:show,:new,:create], controller: "public/orders" do
   end
 
-  resources :shipping_addresses, only:[:index,:edit,:create,:update,:destroy]
-
+  resources :shipping_addresses, only:[:index,:edit,:create,:update,:destroy], controller: "public/shipping_addresses"
+ 
   namespace :admin do
     resources :products, only:[:index,:new,:show,:edit,:create,:update]
     resources :genres, only:[:index,:edit,:create,:update]

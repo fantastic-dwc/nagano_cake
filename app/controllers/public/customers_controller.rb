@@ -1,6 +1,6 @@
 class Public::CustomersController < ApplicationController
   def show
-    @customers = Customer.find(params[:id])
+    @customer = current_customer
   end
 
   def edit
