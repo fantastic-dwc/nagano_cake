@@ -3,7 +3,7 @@
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h1>商品新規登録</h1>
       <%= form_with model:@product, url: {controller: 'admin/products', action: 'create' }, local:true do |f| %>
-        <div class="form-group">
+        <div class="form-group-row">
           <%= f.label :"商品画像" %>
           <%= f.file_field :product_image, class: "form-control-file product_image", accept: 'image/*' %>
         </div>
