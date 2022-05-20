@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     patch "/customers/withdrawal" => "public/customers#withdrawal", as: "withdrawal"
   end
 
-  resources :cart_products, only:[:index,:create,:update,:destroy] do
+  resources :cart_products, only:[:index,:create,:update,:destroy], controller: "public/cart_products" do
     delete "/cart_products/destroy_all" => "public/cart_products#destroy_all", as: "destroy_all"
   end
 
