@@ -1,6 +1,5 @@
-<div class= "mt-5 cotainer">
+<div class= "mt-5 container px-5 px-sm-0">
   <div class="row">
-    <div class="col-11 offset-1">
       <h4>会員一覧</h4>
       <table class="table">
         <thead>
@@ -31,6 +30,6 @@
           <% end %>
         </tbody>
       </table>
-    </div>
   </div>
+  <%= paginate @customers %>
 </div>
