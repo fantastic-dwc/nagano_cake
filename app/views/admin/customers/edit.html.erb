@@ -10,7 +10,7 @@
   <% end %>
    <%= form_with model: @customer, url: {controller: 'admin/customers', action: 'update' } do |customer| %>
        <div class="form-group row">
-        <div class="col-sm-2 col-form-label">
+        <div class="col-sm-2">
          <%= customer.label :id,"会員ID" %>
         </div>
         <div class="col-sm-10">
@@ -18,7 +18,7 @@
         </div>
        </div>
        <div class="form-group row">
-        <div class="col-sm-2 col-form-label">
+        <div class="col-sm-2">
         <%= customer.label :last_name,"氏名" %>
         </div>
         <div class="col-sm-10">
@@ -27,7 +27,7 @@
         </div>
        </div>
        <div class="form-group row">
-        <div class="col-sm-2 col-form-label">
+        <div class="col-sm-2">
          <%= customer.label :last_name_kana,"フリガナ" %>
         </div>
         <div class="col-sm-10">
@@ -36,7 +36,7 @@
         </div>
        </div>
        <div class="form-group row">
-        <div class="col-sm-2 col-form-label">
+        <div class="col-sm-2">
          <%= customer.label :postcode,"郵便番号" %>
         </div>
         <div class="col-sm-10">
@@ -44,7 +44,7 @@
         </div>
        </div>
        <div class="form-group row">
-        <div class="col-sm-2 col-form-label">
+        <div class="col-sm-2">
          <%= customer.label :address,"住所" %>
         </div>
         <div class="col-sm-10">
@@ -52,7 +52,7 @@
         </div>
        </div>
        <div class="form-group row">
-        <div class="col-sm-2 col-form-label">
+        <div class="col-sm-2">
          <%= customer.label :tel,"電話番号" %>
         </div>
         <div class="col-sm-10">
@@ -60,7 +60,7 @@
         </div>
        </div>
        <div class="form-group row">
-        <div class="col-sm-2 col-form-label">
+        <div class="col-sm-2">
          <%= customer.label :email,"メールアドレス" %>
         </div>
         <div class="col-sm-10">
@@ -68,7 +68,7 @@
         </div>
        </div>
        <div class="form-group row">
-        <div class="col-sm-2 col-form-label">
+        <div class="col-sm-2">
          <%= customer.label :is_deleted, "会員ステータス" %>
         </div>
         <div class="col-sm-10">
