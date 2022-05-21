@@ -5,27 +5,27 @@
         <table class='table'>
           <tr>
             <th>購入者</th>
-            <td></td>
+            <td><%= @order.name %></td>
           </tr>
           <tr>
             <th>注文日</th>
-            <td></td>
+            <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
           </tr>
           <tr>
             <th>配送先</th>
-            <td></td>
+            <td><%= @order.address %></td>
           </tr>
           <tr>
             <th>支払方法</th>
-            <td></td>
+            <td><%= @order.payment_method %></td>
           </tr>
           <tr>
             <th>支払ステータス</th>
-            <td></td>
+            <td><%= @order.select :order_status, [ ['入金待ち', 1], ['入金確認', 2], ['制作中', 3], ['発送準備中', 4], ['発送済み', 5] ]</td>
           </tr>
         </table>
 
-        <% @order.each do |f| %>
+        <% @order_producs.each do |f| %>
         <table class='table'>
           <thead>
             <tr>
@@ -37,9 +37,9 @@
             </tr>
             <tr>
               <td><%= f.name %></td>
-              <td><%= f.order_producs.price %></td>
-              <td><%= f.quantity %></td>
               <td><%= f.price %></td>
+              <td><%= f.quantity %></td>
+              <td><%= f. %></td>
               <td></td>
               <td>
                 <div><%= f.submit "更新", class: 'btn btn-sm btn-success' %></div>
@@ -56,11 +56,11 @@
           </tr>
            <tr>
             <th>送料</th>
-            <td></td>
+            <td><%= @order.shipping_fee %></td>
           </tr>
            <tr>
             <th>請求額合計</th>
-            <td></td>
+            <td><%= @order.total_price</td>
           </tr>
         </table>
     </div>
