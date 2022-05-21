@@ -20,7 +20,7 @@ class Public::CartProductsController < ApplicationController
       @cart_product = CartProduct.new(cart_product_params)
       @cart_product.customer_id = current_customer.id
       if @cart_product.save
-        flash[:notice] = "カートに商品が追加されました"
+      flash[:notice] = "カートに商品が追加されました"
         redirect_to cart_products_path
       else
         @cart_products = CartProduct.all
