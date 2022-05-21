@@ -3,12 +3,14 @@
     <div class='row'>
       <div class='col-md-2'>
         <table class="table">
-          <tr><td><%= link_to "全商品", products_path %></td></tr>
-            <% @genres.each do |genre| %>
-            <tr>
-              <td><%= link_to genre.name, products_path(name: genre.id) %></td>
-            </tr>
-            <% end %>
+          <tr>
+            <td><%= link_to "全商品", products_path %></td>
+          </tr>
+          <% @genres.each do |genre| %>
+          <tr>
+            <td><%= link_to genre.name, products_path(name: genre.id) %></td>
+          </tr>
+          <% end %>
         </table>
       </div>
       <div class='col-md-10'>
