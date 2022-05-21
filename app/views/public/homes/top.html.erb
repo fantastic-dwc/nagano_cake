@@ -1,35 +1,50 @@
-<div class="ml-5 pi-5 pt-5">
-  <div class="row">
-    <div class="col-md-3">
-
-      <table class="table table-background table-bordered">
-        <thead>
+<div class="container">
+  <div class="ml-5 pi-5 pt-5">
+    <div class="row">
+      <div class="col-md-2">
+        <table class="table table-background table-bordered">
+          <tr><th>新着商品</br>ジャンル検索</th></tr>
           <tr>
-            <th>ジャンル検索</th>
+            <td><%= link_to "全商品", root_path %></td>
           </tr>
-        </thead>
-        <% @genres.each do |genre| %>
-        <tbody>
+          <% @genres.each do |genre| %>
           <tr>
-            <td><%= genre.name %></td>
+            <td><%= link_to genre.name, root_path(name: genre.id) %></td>
           </tr>
           <% end %>
-        </tbody>
-      </table>
-
-    </div>
-    <div class="col-md-8">
-      <div class="d-flex align-items-center" style="margin-top: 100px; height: 200;">
-        <div style="margin: 50px;">
-          ようこそ、ながのCAKEへ！<br>
-          このサイトは、ケーキ販売のECサイトになります。<br>
-          会員でない方も商品の閲覧はできますが、<br>
-          購入には会員登録が必要になります。
-        </div>
+        </table>
       </div>
-      <div class="mt-3">
-        <h3 class="d-flex">新着商品</h3>
-        <div>新着商品４品表示</div>
+
+      <div class="col-md-10">
+        <div class="d-flex align-items-center" style="margin-top: 100px; height: 200;">
+          <div style="margin: 50px;">
+            ようこそ、ながのCAKEへ！<br>
+            このサイトは、ケーキ販売のECサイトになります。<br>
+            会員でない方も商品の閲覧はできますが、<br>
+            購入には会員登録が必要になります。
+          </div>
+        </div>
+        <div class="mt-3">
+          <h3 class="d-flex">新着商品</h3>
+          <div class="row no-padding card-wrapper">
+            <% @new_products.each do |product| %>
+              <div class="card w-25 shadow-lg">
+                <%= link_to product_path(product) do %>
+                  <%= image_tag product.get_product_image, size: "200x200", class:"card-img-top";  %>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <p class="card-title"><%= product.name %></p>
+                          <p class="card-text">¥<%= product.price %></p>
+                        </div>
+                      </div>
+                    </div>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+          <p><%= link_to "全ての商品を見る", products_path %></p>
+        </div>
       </div>
     </div>
   </div>
