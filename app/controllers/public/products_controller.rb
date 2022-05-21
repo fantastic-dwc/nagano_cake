@@ -1,7 +1,7 @@
 class Public::ProductsController < ApplicationController
   def index
     @genres = Genre.all
-    @products = params[:name].present? ? Genre.find(params[:name]).products : Product.all
+    @products = params[:name].present? ? Genre.find(params[:name]).products : Product.where(is_active: true)
   end
 
   def show

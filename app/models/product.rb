@@ -7,7 +7,7 @@ class Product < ApplicationRecord
   has_one_attached :product_image
 
   def get_product_image
-    (product_image.attached?) ? product_image : 'no_image.jpg'
+    (product_image.attached?) ? product_image : '124196m.jpg'
   end
 
   def with_tax_price
