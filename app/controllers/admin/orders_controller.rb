@@ -1,15 +1,17 @@
 class Admin::OrdersController < ApplicationController
 
   def show
-    @order = Oder.find(params[:id])
-    @order_producs = @order.order_producs
+    @order = Order.find(params[:id])
+    @order_products = @order.order_products
+    @subtotal = 0
   end
 
   def update
     @order = Order.find(params[:id])
-    @product.update(order_params)
-    @order_producs = @order.order_producs
-    @product.update
+    @order.update(order_params)
+    # @order_products = @order.order_products
+    # @product.update
+    flash[:notice] = "更新完了しました"
     redirect_to request.referer
   end
 
