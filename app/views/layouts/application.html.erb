@@ -11,30 +11,17 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #ffebcd">
-      <div class="container">
-        <a class="navbar-brand h1" href="/" style="font-family: cursive; font-size: 24px; color: #c9caca; "><span>Nagano Cake</span></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav ml-auto">
-            <% if customer_signed_in? %>
-              <%= render 'layouts/login_customer_header' %>
-            <% elsif admin_signed_in? %>
-              <%= render 'layouts/admin_header' %>
-            <% else %>
-              <%= render 'layouts/customer_header' %>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-
   <body>
+    <% if customer_signed_in? %>
+      <%= render 'layouts/login_customer_header' %>
+    <% elsif admin_signed_in? %>
+      <%= render 'layouts/admin_header' %>
+    <% else %>
+      <%= render 'layouts/customer_header' %>
+    <% end %>
+  <main>
     <%= yield %>
+  </main>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
