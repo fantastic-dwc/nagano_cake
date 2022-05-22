@@ -37,13 +37,14 @@ class Public::OrdersController < ApplicationController
     # order_products.allではなくcart_products.allかもしれない。実際に動かして確認。
     @total_price =  @cart_products.inject(0) { |sum, product| sum + product.subtotal }
     # @cart_products.subtotal + @fee
-    @fee = shipping_fee = 800
+    @fee = 800
+    @order.shipping_fee = @fee
     if params[:order][:select_address] == "0"
       @order.name = current_customer.first_name + current_customer.last_name
       @order.postcode = current_customer.postcode
       @order.address = current_customer.address
     elsif params[:order][:select_address] == "1"
-      if ShippingAddress.exists?(name: params[:order][:address_id])
+      unless ShippingAddress.exists?(name: params[:order][:address_id])
         # name??
         @order.name = ShippingAddress.find(params[:order][:address_id]).name
         @order.postcode = ShippingAddress.find(params[:order][:address_id]).postcode

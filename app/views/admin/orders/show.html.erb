@@ -1,11 +1,12 @@
 <div class='container mt-5'>
   <div class='row'>
     <div class='col-md-12'>
+      <%= flash[:notice] %>
       <h1>注文履歴詳細</h1>
         <table class='table'>
           <tr>
             <th>購入者</th>
-            <td><%= @order.customer.name %></td>
+            <td><%= @order.customer.last_name + @order.customer.first_name %></td>
           </tr>
           <tr>
             <th>注文日</th>
@@ -20,20 +21,20 @@
           </tr>
           <tr>
             <th>支払方法</th>
-            <td><%= @order.payment_method %></td>
+            <td><%= @order.payment_method_i18n %></td>
           </tr>
           <tr>
             <th>支払ステータス</th>
             <td>
-              <%= form_with model: @order do |f| %>
-                <%= f.select :order_status, [ ['入金待ち', 1], ['入金確認', 2], ['制作中', 3], ['発送準備中', 4], ['発送済み', 5] ] %>
-                <%= f.submit, "更新", class: 'btn btn-sm btn-success' %>
+              <%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
+                <%= f.select :order_status, Order.order_statuses_i18n.invert, {prompt: false} %>
+                <%= f.submit "更新", class: 'btn btn-sm btn-success' %>
               <% end %>
             </td>
           </tr>
         </table>
 
-        <% @order_producs.each do |f| %>
+        <% @order_products.each do |f| %>
         <table class='table'>
           <thead>
             <tr>
@@ -44,17 +45,10 @@
               <th colspan='5'>制作ステータス</th>
             </tr>
             <tr>
-              <td><%= f.name %></td>
+              <td><%= f.product.name %></td>
               <td><%= f.price %></td>
               <td><%= f.quantity %></td>
-              <td><%= f.select :production_status %></td>
-              <td></td>
-              <td>
-                <%= form_with model: f do |production_status| %>
-                  <%= production_status. %>
-                  <%= production_status.submit "更新", class: 'btn btn-sm btn-success' %>
-                <% end %>
-              </td>
+
             </tr>
           </thead>
         </table>
@@ -63,15 +57,20 @@
         <table class='table'>
           <tr>
             <th>商品合計</th>
-            <td></td>
+            <td>
+              <% @order_products.each do |f| %>
+                <% @subtotal += f.quantity * f.price %>
+              <% end %>
+              <%= @subtotal %>
+            </td>
           </tr>
-           <tr>
+          <tr>
             <th>送料</th>
             <td><%= @order.shipping_fee %></td>
           </tr>
-           <tr>
+          <tr>
             <th>請求額合計</th>
-            <td><%= @order.total_price</td>
+            <td><%= @order.total_price %></td>
           </tr>
         </table>
     </div>
