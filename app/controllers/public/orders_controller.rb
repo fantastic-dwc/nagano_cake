@@ -12,11 +12,22 @@ class Public::OrdersController < ApplicationController
 
   def create
     # binding.pry
+    cart_products = current_customer.cart_products.all
     @order = Order.new(order_params)
     if @order.save
+      cart_products.each do |cart|
+        order_product = OrderProduct.new
+        order_product.product_id = cart.product_id
+        order_product.order_id = @order.id
+        order_product.quantity = cart.quantity
+        order_product.price = cart.product.price
+        order_product.save
+      end
       redirect_to complete_path
+      cart_products.destroy_all
     else
-      render 'confirm'
+      @order = Order.new(order_params)
+      render 'new'
     end
   end
 
@@ -24,7 +35,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @cart_products = current_customer.cart_products.all
     # order_products.allではなくcart_products.allかもしれない。実際に動かして確認。
-    @total_price = 0
+    @total_price =  @cart_products.inject(0) { |sum, product| sum + product.subtotal }
     # @cart_products.subtotal + @fee
     @fee = shipping_fee = 800
     if params[:order][:select_address] == "0"
@@ -56,7 +67,7 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payment_method, :postcode, :address, :name, :total_price, :shipping_fee)
+    params.require(:order).permit(:customer_id, :payment_method, :postcode, :address, :name, :total_price, :shipping_fee)
   end
 
 end

@@ -36,7 +36,7 @@
           </tr>
           <tr>
             <th>請求金額</th>
-            <td><%= @total_price = f.subtotal + @fee %></td>
+            <td><%= @total_price + @fee %></td>
           </tr>
         </table>
        </div>
@@ -61,8 +61,8 @@
       <%= f.hidden_field :postcode %>
       <%= f.hidden_field :address %>
       <%= f.hidden_field :name %>
-      <%= f.hidden_field :total_price, :value => @cart_products.subtotal + @fee %>
-      <%= f.hidden_field :shipping_fee, :value => @fee %>
+      <%= f.hidden_field :total_price %>
+      <%= f.hidden_field :shipping_fee, :value => @total_price + @fee %>
       <%= f.hidden_field :payment_method %>
       <%= f.submit "注文を確定する", class: 'btn btn-success' %>
     <% end %>
