@@ -17,17 +17,22 @@
 @import "skippr";
 
 .image1 {
-  background-image: url(image1.jpg);
+  background-image: url(image1.jpeg);
 }
 .image2 {
-  background-image: url(image2.jpg);
+  background-image: url(image2.jpeg);
 }
 .image3 {
-  background-image: url(image3.jpg);
+  background-image: url(image3.jpeg);
 }
 .image4 {
-  background-image: url(image4.jpg);
+  background-image: url(image4.jpeg);
 }
 .image5 {
-  background-image: url(image5.jpg);
+  background-image: url(image5.jpeg);
+}
+
+#slide{
+  width: 700px;
+  height: 450px;
 }

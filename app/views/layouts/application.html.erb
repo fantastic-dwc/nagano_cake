@@ -20,6 +20,10 @@
       <%= render 'layouts/customer_header' %>
     <% end %>
   <main style="flex: 1; margin-bottom: 50px;">
+    <div id="flash-success">
+      <% if notice %>
+      <p id="notice" class="alert alert-warning m-0 text-center"><%= notice %></p>
+      <% end %>
     <%= yield %>
   </main>
     <%= render 'layouts/footer' %>

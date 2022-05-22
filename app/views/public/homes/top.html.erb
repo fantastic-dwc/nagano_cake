@@ -16,35 +16,36 @@
           <% end %>
         </table>
       </div>
-
       <div class="col-md-10">
-          <div id="container">
-            <div id="theTarget">
-              <div class="image1"></div>
-              <div class="image2"></div>
-              <div class="image3"></div>
-              <div class="image4"></div>
-              <div class="image5"></div>
+        <div class= "row d-flex justify-content-center">
+          <div class= "card border border-0" >
+            <div id="slide">
+              <div id="theTarget">
+                <div class="image1"></div>
+                <div class="image2"></div>
+                <div class="image3"></div>
+                <div class="image4"></div>
+                <div class="image5"></div>
+              </div>
             </div>
-          </div>
-          <div style="margin: 50px;">
-            ようこそ、ながのCAKEへ！<br>
-            このサイトは、ケーキ販売のECサイトになります。<br>
-            会員でない方も商品の閲覧はできますが、<br>
-            購入には会員登録が必要になります。
-          </div>
-        <div class="mt-3">
-          <h3 class="d-flex">新着商品</h3>
-          <div class="row no-padding card-wrapper">
-            <% @new_products.each do |product| %>
-              <div class="card w-25 shadow-lg">
-                <%= link_to product_path(product) do %>
-                  <%= image_tag product.get_product_image, size: "150x200", class: "card-img-top" %>
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-md-12">
-                          <p class="card-title text-black-50"><%= product.name %></p>
-                          <p class="card-text text-black-50">¥<%= product.price %></p>
+            <div style="margin: 50px;">
+              ようこそ、ながのCAKEへ！<br>
+              このサイトは、ケーキ販売のECサイトになります。<br>
+              会員でない方も商品の閲覧はできますが、<br>
+              購入には会員登録が必要になります。
+            </div>
+            <div class="mt-3">
+              <h3 class="d-flex">新着商品</h3>
+              <div class="row no-padding card-wrapper">
+                <% @new_products.each do |product| %>
+                <div class="card w-25 shadow-lg">
+                  <%= link_to product_path(product) do %>
+                    <%= image_tag product.get_product_image, size: "150x200", class: "card-img-top" %>
+                      <div class="card-body">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <p class="card-title text-black-50"><%= product.name %></p>
+                            <p class="card-text text-black-50">¥<%= product.price %></p>
                         </div>
                       </div>
                     </div>
@@ -52,9 +53,9 @@
               </div>
             <% end %>
           </div>
-          <p style="margin-top: 30px; margin-bottom: 50px; display: flex; justify-content: flex-end;"><%= link_to "全ての商品を見る>", products_path, class: "text-black-50"  %></p>
         </div>
       </div>
+      <p style="margin-top: 30px; margin-bottom: 50px;"><%= link_to "全ての商品を見る>", products_path, class: "text-black-50"  %></p>
     </div>
   </div>
 </div>

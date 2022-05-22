@@ -1,10 +1,8 @@
-$(document).ready(function () {
-  $('.jquery').on('click', function(){
-    $(this).css('color','red');
-  });
+$("document").ready(function() {
+  $("#theTarget").skippr();
 });
 
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
   $("#theTarget").skippr({
     // スライドショーの変化 ("fade" or "slide")
     transition : 'fade',
@@ -13,11 +11,11 @@ $(document).ready(function () {
     // easingの種類
     easing : 'easeOutQuart',
     // ナビゲーションの形("block" or "bubble")
-    navType : 'bubble',
+    navType : 'block',
     // 子要素の種類('div' or 'img')
     childrenElementType : 'div',
     // ナビゲーション矢印の表示(trueで表示)
-    arrows : false,
+    arrows : true,
     // スライドショーの自動再生(falseで自動再生なし)
     autoPlay : true,
     // 自動再生時のスライド切替間隔(ミリ秒)
