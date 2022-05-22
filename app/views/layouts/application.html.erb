@@ -11,7 +11,7 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
+  <body style="display: flex; flex-flow: column; min-height: 100vh; ">
     <% if customer_signed_in? %>
       <%= render 'layouts/login_customer_header' %>
     <% elsif admin_signed_in? %>
@@ -19,7 +19,7 @@
     <% else %>
       <%= render 'layouts/customer_header' %>
     <% end %>
-  <main>
+  <main style="flex: 1; margin-bottom: 50px;">
     <%= yield %>
   </main>
     <%= render 'layouts/footer' %>
