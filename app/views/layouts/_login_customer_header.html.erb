@@ -1,20 +1,37 @@
-  <li>
-  <%= link_to my_page_path, class: 'nav-link text-light text-black-50' do %>
-  マイページ
-  <% end %>
-  </li>
-  <li>
-  <%=  link_to products_path, class: 'nav-link text-light text-black-50' do %>
-  商品一覧
-  <% end %>
-  </li>
-  <li>
-  <%=  link_to cart_products_path, class: 'nav-link text-light text-black-50' do %>
-  カート
-  <% end %>
-  </li>
-  <li>
-  <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-light text-black-50' do %>
-  ログアウト
-  <% end %>
-  </li>
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #ffebcd">
+    <div class="container">
+      <a class="navbar-brand h1" href="/" style="font-family: cursive; font-size: 24px; color: #c9caca; "><span>Nagano Cake</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="text-black-50" style="margin-left: 100px;">
+        ようこそ、<%= current_customer.last_name %> <%= current_customer.first_name %> さん！
+      </div>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+          <li>
+            <%= link_to my_page_path, class: 'nav-link text-light text-black-50' do %>
+              マイページ
+            <% end %>
+          </li>
+          <li>
+            <%=  link_to products_path, class: 'nav-link text-light text-black-50' do %>
+              商品一覧
+            <% end %>
+          </li>
+          <li>
+            <%=  link_to cart_products_path, class: 'nav-link text-light text-black-50' do %>
+              カート
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_customer_session_path, method: :delete, class: 'nav-link text-light text-black-50' do %>
+              ログアウト
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
