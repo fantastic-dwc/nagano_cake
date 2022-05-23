@@ -34,7 +34,7 @@
           </tr>
         </table>
 
-        <% @order_products.each do |f| %>
+
         <table class='table'>
           <thead>
             <tr>
@@ -42,24 +42,31 @@
               <th>単価（税込）</th>
               <th>数量</th>
               <th>小計</th>
-              <th colspan='5'>制作すてー</th>
+              <th colspan='5'>制作ステータス</th>
             </tr>
+            <% @order_products.each do |f| %>
             <tr>
               <td><%= f.product.name %></td>
-              <td><%= f.price %></td>
+              <td><%= (f.product.price * 1.1).floor %></td>
               <td><%= f.quantity %></td>
-
+              <td><%= (f.product.price * 1.1).floor * f.quantity %></td>
+              <td><%= form_with model: @order_products, url: admin_order_path(@order), method: :patch do |f| %>
+                    <%= f.select :production_status, OrderProduct.production_statuses_i18n.invert, {prompt: false} %>
+                    <%= f.submit "更新", class: 'btn btn-sm btn-success' %>
+                  <% end %>
+              </td>
             </tr>
+            <% end %>
           </thead>
         </table>
-        <% end %>
+
 
         <table class='table'>
           <tr>
             <th>商品合計</th>
             <td>
               <% @order_products.each do |f| %>
-                <% @subtotal += f.quantity * f.price %>
+                <% @subtotal += (f.product.price * 1.1).floor * f.quantity %>
               <% end %>
               <%= @subtotal %>
             </td>
