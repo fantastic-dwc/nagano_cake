@@ -73,12 +73,12 @@
         </div>
         <div class="col-sm-10">
          <%= customer.radio_button :is_deleted, :false %>
-         <%= customer.label :is_deleted, "有効" %>
+         <%= customer.label :is_deleted, "有効", class: "text-success font-weight-bold" %>
          <%= customer.radio_button :is_deleted, :true %>
-         <%= customer.label :is_deleted, "退会" %>
+         <%= customer.label :is_deleted, "退会", class: "text-secondary" %>
         </div>
        </div>
-           <%= button_tag type: "submit", class: "btn btn-success" do %>
+           <%= button_tag type: "submit", class: "btn btn-outline-success" do %>
             変更を保存
            <% end %>
    <% end %>
