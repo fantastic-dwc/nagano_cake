@@ -1,24 +1,60 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+※DMM WEBCAMPのチーム開発で作成したアプリケーションです
 
-Things you may want to cover:
+# ながのCAKE
+長野県にある小さな洋菓子店「ながのCAKE」
 
-* Ruby version
+## 背景
+元々近隣住民が顧客だったが、昨年始めたInstagramから人気となり、全国から注文が来るよう になった。InstagramのDMやメールで通販の注文を受けていたが、情報管理が煩雑になってきたため、管 理機能を含んだ通販サイトを開設しようと思い至った。
 
-* System dependencies
+## アプリケーション機能
+* 会員側
+  * ログイン機能
+  * ログアウト機能
+  * 商品一覧表示機能
+  * 商品詳細情報表示機能
+  * カート追加機能
+  * カート一覧機能
+  * カート編集機能
+  * 注文機能
+  * 会員情報編集機能
+  * 退会機能
+  * 配送先追加・編集機能
+  * 注文履歴一覧表示機能
+  * 注文履歴詳細表示機能
 
-* Configuration
+* 管理者側
+  * ログイン機能
+  * ログアウト機能
+  * 注文履歴一覧表示機能
+  * 注文履歴詳細表示機能
+  * 顧客一覧表示機能
+  * 顧客詳細情報表示機能
+  * 商品一覧表示機能
+  * 商品詳細情報表示機能
+  * 商品情報変更機能
+  * ジャンル設定機能
+ 
+## 管理者用ログインアカウント
+* メールアドレス: admin@gmail.com
+* パスワード: aaaaaa
 
-* Database creation
+## Gem
+* devise
+* kaminari
+* enum_help
+* pry-byebug
+* devise-i18n
+* skipper
 
-* Database initialization
+## 使用言語・環境
+* 使用言語:
+　HTML&CSS・Ruby・JavaScript  
+* フレームワーク:
+　Ruby on Rails(6.1.5)
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発メンバー
+* くーろん
+* よっしー
+* ふくちゃん
+* みさ
