@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  
+
+  get "search" => "public/searches#search"
   get "/customers/my_page" => "public/customers#show", as: "my_page"
   get "/customers/edit" => "public/customers#edit", as: "edit_customers"
   patch "customers" => "public/customers#update"
@@ -29,7 +30,7 @@ Rails.application.routes.draw do
   end
 
   resources :shipping_addresses, only:[:index,:edit,:create,:update,:destroy], controller: "public/shipping_addresses"
- 
+
   namespace :admin do
     resources :products, only:[:index,:new,:show,:edit,:create,:update]
     resources :genres, only:[:index,:edit,:create,:update]
