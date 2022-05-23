@@ -12,7 +12,7 @@ ja:
           shipped: "発送済み"
       order_product:
         production_status:
-          impossible_manifacture: "着手不可"
-          waiting_manifacture: "制作待ち"
-          manifacturing: "制作中"
+          impossible_manufacture: "着手不可"
+          waiting_manufacture: "制作待ち"
+          manufacturing: "制作中"
           finish: "制作完了"
