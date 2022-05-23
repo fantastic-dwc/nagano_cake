@@ -46,15 +46,15 @@
                           <div class="col-md-12">
                             <p class="card-title text-black-50"><%= product.name %></p>
                             <p class="card-text text-black-50">¥<%= product.price %></p>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                  <% end %>
+                </div>
                 <% end %>
               </div>
-            <% end %>
+            </div>
           </div>
-        </div>
-      </div>
       <p style="margin-top: 30px; margin-bottom: 50px;"><%= link_to "全ての商品を見る>", products_path, class: "text-black-50"  %></p>
     </div>
   </div>
