@@ -11,8 +11,8 @@
           <th>ステータス</th>
           <th>注文詳細</th>
         </tr>
+        <% @orders.each do |order| %>
         <tr>
-          <% @orders.each do |order| %>
           <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
           <td>
             <%= order.postcode %></br><%= order.address %></br>
@@ -25,8 +25,8 @@
           <td><%= order.total_price %></td>
           <td><%= order.order_status_i18n %></td>
           <td><%= link_to "表示する", order_path(order.id), class: "btn btn-primary" %></td>
-          <% end %>
         </tr>
+        <% end %>
         </tr>
       </table>
     </div>
