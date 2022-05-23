@@ -16,3 +16,6 @@ ja:
           waiting_manufacture: "制作待ち"
           manufacturing: "制作中"
           finish: "制作完了"
+    time:
+      formats:
+        default: "%Y/%m/%d %H:%M:%S"
