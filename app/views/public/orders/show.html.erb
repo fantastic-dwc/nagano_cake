@@ -58,10 +58,10 @@
         </tr>
         <% @order.order_products.each do |product| %>
         <tr>
-            <td><%= product.product.name %></td>
-            <td><%= (product.price*1.1).floor %></td>
-            <td><%= product.quantity %></td>
-            <td><%= (product.price*1.1).floor * product.quantity %></td>
+          <td><%= product.product.name %></td>
+          <td><%= (product.price*1.1).floor %></td>
+          <td><%= product.quantity %></td>
+          <td><%= (product.price*1.1).floor * product.quantity %></td>
         </tr>
         <% end %>
       </table>
