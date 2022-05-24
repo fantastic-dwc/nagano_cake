@@ -52,6 +52,7 @@ class Public::OrdersController < ApplicationController
         @order.address = ShippingAddress.find(params[:order][:address_id]).address
       else
         render 'new'
+        flash[:notice] = "お届け先が選択されていません"
       end
     elsif params[:order][:select_address] == "2"
       # shippingaddressを作って機能するか確認する"1"のセレクタも確認

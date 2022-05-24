@@ -1,6 +1,7 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-12'>
+      <%= render "/layouts/errors", obj: @cart_product %>
       <%= form_with model: @cart_product, url: cart_products_path, method: :post do |f| %>
       <div class="row no-padding card-wrapper">
         <div class="card shadow-lg" style="width: 90rem;">

@@ -1,13 +1,6 @@
 <div class="mt-5 container">
   <h4><%= @customer.last_name %> <%= @customer.first_name %>さんの会員情報編集</h4>
-  <% if @customer.errors.any? %>
-     <%= @customer.errors.count %>件のエラーが発生しました
-     <ul>
-       <% @customer.errors.full_messages.each do |message| %>
-         <li><%= message %></li>
-       <% end %>
-     </ul>
-  <% end %>
+  <%= render 'layouts/errors', obj: @customer %>
    <%= form_with model: @customer, url: {controller: 'admin/customers', action: 'update' } do |customer| %>
        <div class="form-group row">
         <div class="col-sm-2">
