@@ -1,0 +1,16 @@
+<h3>検索結果</h3>
+<% if @products.exists? %>
+  <table>
+    <tbody>
+      <% @products.each do |product| %>
+      <tr>
+        <td> <%= image_tag product.get_product_image, size: "50x50", class:"card-img-top" %></td>
+        <td><%= product.name %></td>
+        <td><%= product.price.to_s(:delimited) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <div>一致する検索結果はありません</div>
+<% end %>
