@@ -3,7 +3,7 @@
     <div class='col-md-12'>
       <%= form_with model: @cart_product, url: cart_products_path, method: :post do |f| %>
       <div class="row no-padding card-wrapper">
-        <div class="card">
+        <div class="card shadow-lg" style="width: 90rem;">
           <div class='row g-0'>
             <div class="col-md-7">
               <%= image_tag @product.get_product_image, class: "card-img-top" %>
@@ -39,7 +39,7 @@
   </div>
   <div class="row">
     <div class='col-md-12 d-flex align-items-start'>
-      <div style="background-color: #f5f5f5; padding-top: 20px;">
+      <div style="padding-top: 15px;">
         <h5 class="d-flex">その他の<%= @product.genre.name %></h5>
         <div class="row no-padding card-wrapper">
           <% @same_genre_products.each do |product| %>
