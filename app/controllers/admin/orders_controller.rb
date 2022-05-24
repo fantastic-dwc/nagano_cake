@@ -11,10 +11,6 @@ class Admin::OrdersController < ApplicationController
       @order.update(order_params)
      if @order.order_products.update_all(production_status: 1)
         @order.order_status == "waiting"
-     elsif @order.order_products.update_all(production_status: 2)
-       @order.order_status == "making"
-     else @order.update_all(order_params: 3)
-       @order.order_products.production_status == "finish"
      end
     # @order_products = @order.order_products
     # @product.update
