@@ -15,14 +15,14 @@
           <%= image_tag cart_product.product.get_product_image, size: '50x50' %>
           <%= cart_product.product.name %>
         </td>
-        <td><%= cart_product.product.with_tax_price %></td>
+        <td><%= cart_product.product.with_tax_price.to_s(:delimited) %></td>
         <td>
           <%= form_with model: cart_product, method: :patch do |f| %>
             <%= f.select :quantity, *[1..10] %>
             <%= f.submit "変更", class: "btn btn-success" %>
             <% end %>
         </td>
-        <td><%= cart_product.subtotal %></td>
+        <td><%= cart_product.subtotal.to_s(:delimited) %></td>
         <td>
           <%= link_to "削除する", cart_product_path(cart_product), method: :delete, class: "btn btn-danger" %>
         </td>
