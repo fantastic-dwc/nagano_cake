@@ -12,10 +12,12 @@ class Public::ShippingAddressesController < ApplicationController
   def create
     @shipping_addresses = ShippingAddress.all
     @shipping_address = ShippingAddress.new(shipping_address_params)
+    @shipping_address.customer_id = current_customer.id
     if @shipping_address.save
       redirect_to shipping_addresses_path, notice: "配送先住所を新規登録しました"
     else
       @shipping_addresses = ShippingAddress.all
+      render "index"
     end
   end
 
@@ -37,7 +39,7 @@ class Public::ShippingAddressesController < ApplicationController
 
   private
   def shipping_address_params
-    params.require(:shipping_address).permit(:postcode, :address, :name)
+    params.require(:shipping_address).permit(:postcode, :address, :name, :customer_id)
   end
 
 end

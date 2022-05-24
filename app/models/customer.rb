@@ -4,7 +4,7 @@ class Customer < ApplicationRecord
   has_many :cart_products, dependent: :destroy
   has_many :products, through: :cart_products
   has_many :orders, dependent: :destroy
-
+  has_many :shipping_addresses, dependent: :destroy
 
 
   devise :database_authenticatable, :registerable,
