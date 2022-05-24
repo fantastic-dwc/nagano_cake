@@ -24,7 +24,7 @@ class Public::CartProductsController < ApplicationController
         redirect_to cart_products_path
       else
         @cart_products = CartProduct.all
-        flash[:notice] = "商品の個数を選択してください"
+        @same_genre_products = Product.where(genre_id: @product.genre_id)
         render 'public/products/show'
       end
     end

@@ -4,8 +4,9 @@
       <div class="m-5">
         <h2>登録情報修正</h2>
       </div>
-      
+      <%= render "/layouts/errors", obj: @customer %>
       <%= form_with model: @customer, url: {controller: 'public/customers', action: 'update'} do |f| %>
+       
         <div class="form-group row">
           <div class="col-md-2">名前</div>
             <%= f.label :last_name, "(姓)", class: "col-md-1" %>
@@ -13,7 +14,7 @@
             <%= f.label :first_name, "(名)", class: "col-md-1" %>
             <%= f.text_field :first_name, class: "col-md-2" %>
           </div>
-    
+
         <div class="form-group row">
           <div class="col-md-2">フリガナ</div>
             <%= f.label :last_name_kana, "(セイ)", class: "col-md-1" %>
@@ -21,22 +22,22 @@
             <%= f.label :first_name_kana, "(メイ)", class: "col-md-1" %>
             <%= f.text_field :first_name_kana, class: "col-md-2" %>
         </div>
-    
+
         <div class="form-group row">
           <%= f.label :email, "メールアドレス",class: "col-md-3" %><br />
           <%= f.email_field :email, autocomplete: "email",class: "col-md-2" %>
         </div>
-    
+
         <div class="form-group row">
           <%= f.label :postcode, "郵便番号(ハイフンなし)", class: "col-md-3" %>
           <%= f.text_field :postcode, class: "col-md-2" %>
         </div>
-    
+
         <div class="form-group row">
           <%= f.label :address, "住所", class: "col-md-3" %>
           <%= f.text_field :address, class: "col-md-5" %>
         </div>
-    
+
         <div class="form-group row">
           <%= f.label :tel, "電話番号(ハイフンなし)", class: "col-md-3" %>
           <%= f.telephone_field :tel, class: "col-md-2" %>
@@ -48,7 +49,7 @@
         </div>
 
       <% end %>
-    
+
     </div>
   </div>
 </div>

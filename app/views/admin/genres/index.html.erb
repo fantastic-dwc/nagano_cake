@@ -1,6 +1,6 @@
 <div class="ml-5 pi-5 pt-5">
   <h3 class="ml-5">ジャンル一覧・追加</h3>
-
+ <%= render 'layouts/errors', obj: @genre %>
   <%= form_with model:@genre, url: "/admin/genres" do |f| %>
   <div class="pt-4 form-inline">
     <div>ジャンル名</div>
