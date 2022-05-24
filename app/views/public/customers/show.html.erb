@@ -1,10 +1,10 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-12'>
-      <h1 class="m-3">マイページ</h1>
+      <h1 class="m-3">My Page</h1>
         <table class="table table-borderless">
           <th style="width: 10%">登録情報</th>
-          <td><%= link_to "編集する", edit_customers_path, class: "btn btn-success" %></td>
+          <td><%= link_to "編集する", edit_customers_path, class: "btn btn-outline-success" %></td>
         </table>
       <table class="table">
         <tr>
@@ -35,11 +35,11 @@
       <table class="table table-borderless">
         <tr>
           <th style="width: 10%">配送先</th>
-          <td><%= link_to "一覧を見る", shipping_addresses_path, class: "btn btn-primary" %></td>
+          <td><%= link_to "一覧を見る", shipping_addresses_path, class: "btn btn-outline-primary" %></td>
         </tr>
         <tr>
           <th>注文履歴</th>
-          <td><%= link_to "一覧を見る", orders_path, class: "btn btn-primary" %></td>
+          <td><%= link_to "一覧を見る", orders_path, class: "btn btn-outline-primary" %></td>
         </tr>
       </table>
     </div>
