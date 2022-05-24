@@ -7,6 +7,6 @@ class Public::ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @cart_product = CartProduct.new
-    @same_genre_products = Product.all.where(genre_id: @product.genre_id).limit(6)
+    @same_genre_products = Product.where(genre_id: @product.genre_id)
   end
 end
