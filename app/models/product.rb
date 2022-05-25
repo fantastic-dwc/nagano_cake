@@ -14,6 +14,20 @@ class Product < ApplicationRecord
      (price * 1.1).floor
   end
 
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @product = Product.where("title LIKE?","#{word}")
+    elsif search == "forward_match"
+      @product = Product.where("title LIKE?","#{word}%")
+    elsif search == "backward_match"
+      @product = Product.where("title LIKE?","%#{word}")
+    elsif search == "partial_match"
+      @product = Product.where("title LIKE?","%#{word}%")
+    else
+      @product = Product.all
+    end
+  end
+
   validates :name, presence: true
   validates :introduction, presence: true
   validates :price, presence: true
