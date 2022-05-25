@@ -15,10 +15,6 @@ class Admin::GenresController < ApplicationController
     @genre = Genre.new(genre_params)
     if @genre.save
       flash[:notice] = "ジャンルを登録しました"
-      redirect_to admin_genres_path
-    else
-      @genres =Genre.all
-      render "index"
     end
   end
 
@@ -30,6 +26,12 @@ class Admin::GenresController < ApplicationController
     else
       render "edit"
     end
+  end
+
+  def destroy
+    @genres = Genre.all
+    @genre = Genre.find(params[:id])
+    @genre.destroy
   end
 
   private
