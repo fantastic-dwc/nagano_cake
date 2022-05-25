@@ -6,7 +6,7 @@
       <div>
         <%= link_to '+', new_admin_product_path, class: 'btn btn-outline-dark' %>
       </div>
-      <table class="table">
+      <table class="table table-hover">
         <thead>
           <tr>
             <th>商品ID</th>
@@ -18,9 +18,9 @@
         </thead>
         <tbody>
           <% @products.each do |f| %>
-          <tr>
+          <tr onclick='window.location="<%= '/admin/products/' + f.id.to_s %>"' role="link" >
             <td><%= f.id %></td>
-            <td><%= link_to f.name, admin_product_path(f) %></td>
+            <td><%= f.name %></td>
             <td>¥<%= f.price.to_s(:delimited) %></td>
             <td><%= f.genre.name %></td>
             <td align="left">
