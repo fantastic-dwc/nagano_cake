@@ -1,7 +1,7 @@
 <div class='container px-5 px-sm-0'>
+  <h2>注文情報確認</h2>
   <div class='row'>
 
-    <h1>注文情報確認</h1>
       <% @cart_products.each do |f| %>
        <div class='col-md-8'>
         <table class="table">
@@ -16,9 +16,9 @@
           <tbody>
             <tr>
               <td><%= f.product.name %></td>
-              <td><%= (f.product.price * 1.1).floor %></td>
+              <td>¥<%= ((f.product.price * 1.1).floor).to_s(:delimited) %></td>
               <td><%= f.quantity %></td>
-              <td><%= (f.product.price * 1.1).floor * f.quantity %></td>
+              <td>¥<%= ((f.product.price * 1.1).floor * f.quantity).to_s(:delimited) %></td>
             </tr>
           </tbody>
         </table>
@@ -28,15 +28,15 @@
         <table class="table">
           <tr>
             <th>送料</th>
-            <td><%= @fee %></td>
+            <td>¥<%= @fee.to_s(:delimited) %></td>
           </tr>
           <tr>
             <th>商品合計</th>
-            <td><%= f.subtotal %></td>
+            <td>¥<%= f.subtotal.to_s(:delimited) %></td>
           </tr>
           <tr>
             <th>請求金額</th>
-            <td><%= @total_price + @fee %></td>
+            <td>¥<%= (@total_price + @fee).to_s(:delimited) %></td>
           </tr>
         </table>
        </div>
@@ -64,7 +64,7 @@
       <%= f.hidden_field :total_price, :value => @total_price + @fee %>
       <%= f.hidden_field :shipping_fee %>
       <%= f.hidden_field :payment_method %>
-      <%= f.submit "注文を確定する", class: 'btn btn-success' %>
+      <%= f.submit "注文を確定する", class: 'btn btn-outline-success' %>
     <% end %>
   </div>
 </div>

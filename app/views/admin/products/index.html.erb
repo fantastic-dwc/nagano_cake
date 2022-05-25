@@ -1,10 +1,11 @@
 <div class='container mt-5'>
   <div class="row">
+      
+
+      <h3 class="mr-2">商品一覧</h3>
       <div>
         <%= link_to '+', new_admin_product_path, class: 'btn btn-outline-dark' %>
       </div>
-
-      <h3>商品一覧</h3>
       <table class="table">
         <thead>
           <tr>
@@ -20,7 +21,7 @@
           <tr>
             <td><%= f.id %></td>
             <td><%= link_to f.name, admin_product_path(f) %></td>
-            <td><%= f.price %></td>
+            <td>¥<%= f.price.to_s(:delimited) %></td>
             <td><%= f.genre.name %></td>
             <td align="left">
               <% if f.is_active %>

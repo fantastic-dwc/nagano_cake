@@ -34,17 +34,17 @@
               購入には会員登録が必要になります。
             </div>
             <div style="background-color: #f5f5f5; padding-top: 20px;">
-              <h3 class="d-flex">新着商品</h3>
+              <h3>New Products</h3>
               <div class="row no-padding card-wrapper">
                 <% @new_products.each do |product| %>
                 <div class="card w-25 shadow-lg">
                   <%= link_to product_path(product) do %>
-                    <%= image_tag product.get_product_image, size: "150x200", class: "card-img-top" %>
+                    <%= image_tag product.get_product_image, size: "100x150", class: "card-img-top" %>
                       <div class="card-body">
                         <div class="row">
                           <div class="col-md-12">
                             <p class="card-title text-black-50"><%= product.name %></p>
-                            <p class="card-text text-black-50">¥<%= product.price %></p>
+                            <p class="card-text text-black-50">¥<%= product.price.to_s(:delimited) %></p>
                           </div>
                         </div>
                       </div>
