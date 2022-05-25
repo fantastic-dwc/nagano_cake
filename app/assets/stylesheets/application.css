@@ -36,3 +36,10 @@
   width: 700px;
   height: 450px;
 }
+
+.field_with_errors {
+  display: contents;
+}
+#error_explanation {
+  color: red;
+}
