@@ -1,5 +1,6 @@
 <div style= "margin: 50px;" >
   <h3 style="margin-left: 50px;">配送先登録/一覧</h3>
+  <%= render 'layouts/errors', obj: @shipping_address %>
   <%= form_with model: @shipping_address do |f| %>
   <table  class="table table-borderless" style= "margin-top: 50px;">
     <tbody>
