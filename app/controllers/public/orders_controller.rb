@@ -1,12 +1,17 @@
 class Public::OrdersController < ApplicationController
   before_action :authenticate_customer!
-  
+
   def index
-    @orders=Order.where(customer_id: current_customer.id)
+    @orders=Order.page(params[:page]).per(4).where(customer_id: current_customer.id)
   end
 
   def show
-    @order=Order.find(params[:id])
+    if Order.exists?(params[:id])
+      @order=Order.find(params[:id])
+    else
+       @orders=Order.page(params[:page]).per(4).where(customer_id: current_customer.id)
+      render "index"
+    end
   end
 
   def new
