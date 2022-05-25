@@ -2,7 +2,7 @@
   <div class='row'>
     <div class='col-md-4'>
 　　　<h3>商品詳細</h3>
-　　　<%= image_tag @product.get_product_image, size: '200x200' %>
+　　　<%= image_tag @product.get_product_image, size: '300x200' %>
 　　</div>
 　　<div class='col-md-8 offset-md-1'>
 　　  <table class="table">
@@ -19,20 +19,21 @@
 　　      <td><%= @product.genre.name %></td>
 　　    </tr>
 　　    <tr>
-　　      <th>税込価格<br>（税抜価格）</th>
-　　      <td><%= (@product.price * 1.1).floor %>(<%= @product.price %>)円</td>
+　　      <th>税込価格（税抜価格）</th>
+　　      <td>¥<%= ((@product.price * 1.1).floor).to_s(:delimited) %>(¥<%= (@product.price).to_s(:delimited) %>)</td>
 　　    </tr>
 　　    <tr>
 　　      <th>販売ステータス</th>
-　　      <td><% if @product.is_active %>
-　　        <span>販売中</span>
+　　      <td>
+　　        <% if @product.is_active %>
+              販売中</span>
 　　        <% else %>
-　　        <span>販売停止中</span>
+              <span>販売停止中</span>
 　　        <% end %>
 　　      </td>
 　　    </tr>
 　　  </table>
-　　  <%= link_to '編集する', edit_admin_product_path(@product), class: "btn btn-success" %>
+　　  <%= link_to '編集する', edit_admin_product_path(@product), class: "btn btn-outline-success" %>
 　　</div>
 　</div>
 </div>

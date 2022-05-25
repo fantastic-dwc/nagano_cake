@@ -28,7 +28,7 @@
             <td>
               <%= form_with model: @order, url: admin_order_path(@order), method: :patch do |f| %>
                 <%= f.select :order_status, Order.order_statuses_i18n.invert, {prompt: false} %>
-                <%= f.submit "更新", class: 'btn btn-sm btn-success' %>
+                <%= f.submit "更新", class: 'btn btn-sm btn-outline-success' %>
               <% end %>
             </td>
           </tr>
@@ -47,12 +47,12 @@
             <% @order_products.each do |f| %>
             <tr>
               <td><%= f.product.name %></td>
-              <td><%= (f.product.price * 1.1).floor %></td>
+              <td>¥<%= ((f.product.price * 1.1).floor).to_s(:delimited) %></td>
               <td><%= f.quantity %></td>
-              <td><%= (f.product.price * 1.1).floor * f.quantity %></td>
+              <td>¥<%= ((f.product.price * 1.1).floor * f.quantity).to_s(:delimited) %></td>
               <td><%= form_with model: f, url: admin_order_product_path(f), method: :patch do |f| %>
                     <%= f.select :production_status, OrderProduct.production_statuses_i18n.invert, {prompt: false} %>
-                    <%= f.submit "更新", class: 'btn btn-sm btn-success' %>
+                    <%= f.submit "更新", class: 'btn btn-sm btn-outline-success' %>
                   <% end %>
               </td>
             </tr>
@@ -68,16 +68,16 @@
               <% @order_products.each do |f| %>
                 <% @subtotal += (f.product.price * 1.1).floor * f.quantity %>
               <% end %>
-              <%= @subtotal %>
+              ¥<%= @subtotal.to_s(:delimited) %>
             </td>
           </tr>
           <tr>
             <th>送料</th>
-            <td><%= @order.shipping_fee %></td>
+            <td>¥<%= (@order.shipping_fee).to_s(:delimited) %></td>
           </tr>
           <tr>
             <th>請求額合計</th>
-            <td><%= @order.total_price %></td>
+            <td>¥<%= (@order.total_price).to_s(:delimited) %></td>
           </tr>
         </table>
     </div>
