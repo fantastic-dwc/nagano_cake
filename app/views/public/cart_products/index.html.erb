@@ -1,8 +1,8 @@
 <div style="margin: 50px;">
   <div class="d-flex justify-content-between">
-    <h3>ショッピングカート</h3>
+    <h2>CART</h2>
     <% if @cart_products.exists? %>
-    <div><%= link_to "カートを空にする",  cart_product_destroy_all_path(current_customer.cart_products), method: :delete, class: "btn btn-danger" %></div>
+    <div><%= link_to "カートを空にする",  cart_product_destroy_all_path(current_customer.cart_products), method: :delete, class: "btn btn-outline-danger" %></div>
     <% end %>
   </div>
   <div style="margin-top: 30px;">
@@ -10,13 +10,13 @@
   </div>
   <div class="d-flex justify-content-between">
     <div>
-      <%= link_to "買い物を続ける", root_path, class: "btn btn-primary" %>
+      <%= link_to "買い物を続ける", root_path, class: "btn btn-outline-primary" %>
     </div>
     <div>
       <table class="table table-bordered">
         <tr>
           <th>合計金額</th>
-          <td><%= @total_price.to_s(:delimited) %></td>
+          <td>¥<%= @total_price.to_s(:delimited) %></td>
         </tr>
       </table>
     </div>
@@ -24,7 +24,7 @@
 
   <% if @cart_products.exists? %>
   <div class="d-flex justify-content-center">
-    <%= link_to "情報入力に進む", new_order_path, class: "btn btn-success" %>
+    <%= link_to "情報入力に進む", new_order_path, class: "btn btn-outline-success" %>
   </div>
   <% end %>
 </div>
