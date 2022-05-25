@@ -13,7 +13,7 @@
         </thead>
         <% @orders.each do |f| %>
         <tbody>
-          <tr onclick='window.location="<%= '/admin/orders/' + f.id.to_s %>"' role="link" %>
+          <tr onclick='window.location="<%= '/admin/orders/' + f.id.to_s %>"' role="link" >
             <td><%= f.created_at.strftime('%Y/%m/%d %H:%M') %></td>
             <td><%= f.customer.last_name + f.customer.first_name %></td>
             <td><%= f.order_products.all.sum(:quantity) %></td>

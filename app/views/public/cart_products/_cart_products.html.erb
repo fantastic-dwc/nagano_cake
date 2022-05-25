@@ -1,4 +1,4 @@
-<table class="table table-bordered">
+<table class="table table-bordered table-hover">
   <thead>
     <tr>
       <th>商品名</th>
@@ -20,7 +20,7 @@
           <%= form_with model: cart_product, method: :patch do |f| %>
             <%= f.select :quantity, *[1..10] %>
             <%= f.submit "変更", class: "btn btn-outline-success" %>
-            <% end %>
+          <% end %>
         </td>
         <td>¥<%= cart_product.subtotal.to_s(:delimited) %></td>
         <td>
