@@ -4,7 +4,7 @@
       <table class="table table-hover">
         <tr><th><h4>Genre Search</h4></th></tr>
         <tr>
-          <td><%= link_to "全商品", products_path, class: "text-black-50" %></td>
+          <td><%= link_to "All", products_path, class: "text-black-50" %></td>
         </tr>
         <% @genres.each do |genre| %>
         <tr>
@@ -17,7 +17,7 @@
       <h1 class="m-3">Our Products</h1>
       <div class="row no-padding card-wrapper">
       <% @products.each do |product| %>
-        <div class="card w-25 mt-4 shadow-lg">
+        <div class="card w-25 shadow-lg">
         <%= link_to product_path(product) do %>
           <%= image_tag product.get_product_image, size: "100x150", class: "card-img-top" %>
             <div class="card-body text-black-50">
@@ -35,3 +35,4 @@
     </div>
   </div>
 </div>
+

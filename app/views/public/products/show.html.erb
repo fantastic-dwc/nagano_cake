@@ -44,7 +44,7 @@
         <h5 class="d-flex">その他の<%= @product.genre.name %></h5>
         <div class="row no-padding card-wrapper">
           <% @same_genre_products.each do |product| %>
-          <div class="card shadow-lg" style="width: 11.8rem;">
+          <div class="card shadow-lg m-2" style="width: 11.8rem;">
             <%= link_to product_path(product) do %>
               <%= image_tag product.get_product_image, size: "100x150", class: "card-img-top" %>
                 <div class="card-body">
