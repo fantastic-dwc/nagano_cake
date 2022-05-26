@@ -1,64 +1,62 @@
 <div class="container">
-  <div class="ml-5 pi-5 pt-5">
-    <div class="row" style="background-color: ##f5f5f5;">
-      <div class="col-md-2">
-        <table class="table table-background table-bordered table-hover">
-          <tr>
-            <th><h4>Genre Search</h4></th>
-          </tr>
-          <tr>
-            <td><%= link_to "全商品", root_path, class: "text-black-50" %></td>
-          </tr>
-          <% @genres.each do |genre| %>
-          <tr>
-            <td><%= link_to genre.name, root_path(name: genre.id), class: "text-black-50" %></td>
-          </tr>
-          <% end %>
-        </table>
-      </div>
-      <div class="col-md-10" style="padding-left: 50px;">
-          <div class= "card border border-0" style="background-color: #f5f5f5;" >
-            <div id="slide">
-              <div id="theTarget" style="position: relative;">
-                <div class="image1"></div>
-                <div class="image2"></div>
-                <div class="image3"></div>
-                <div class="image4"></div>
-                <div class="image5"></div>
-              </div>
-            </div>
-            <div style="background: rgba(0, 0, 0, 0.4); z-index: 10; position: absolute; margin: 110px; color: #fcfcfc; padding: 60px;">
-              ようこそ、ながのCAKEへ！<br>
-              このサイトは、ケーキ販売のECサイトになります。<br>
-              会員でない方も商品の閲覧はできますが、<br>
-              購入には会員登録が必要になります。
-            </div>
-            <div style="background-color: #f5f5f5; padding-top: 20px;">
-              <h3>New Products</h3>
-              <div class="row no-padding card-wrapper">
-                <% @new_products.each do |product| %>
-                <div class="card w-25 shadow-lg">
-                  <%= link_to product_path(product) do %>
-                    <%= image_tag product.get_product_image, size: "100x150", class: "card-img-top" %>
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-md-12">
-                            <p class="card-title text-black-50"><%= product.name %></p>
-                            <p class="card-text text-black-50">¥<%= product.price.to_s(:delimited) %></p>
-                          </div>
-                        </div>
+  <div class="row" style="background-color: ##f5f5f5;">
+    <div class="col-md-2">
+      <table class="table table-background table-bordered table-hover">
+        <tr>
+          <th><h4>New's Genre</h4></th>
+        </tr>
+        <tr>
+          <td><%= link_to "全商品", root_path, class: "text-black-50" %></td>
+        </tr>
+        <% @genres.each do |genre| %>
+        <tr>
+          <td><%= link_to genre.name, root_path(name: genre.id), class: "text-black-50" %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="col-md-10" style="padding-left: 50px;">
+      <div class= "card border border-0" style="background-color: #f5f5f5;" >
+        <div id="slide">
+          <div id="theTarget" style="position: relative;">
+            <div class="image1"></div>
+            <div class="image2"></div>
+            <div class="image3"></div>
+            <div class="image4"></div>
+            <div class="image5"></div>
+          </div>
+        </div>
+        <div style="background: rgba(0, 0, 0, 0.4); z-index: 10; position: absolute; margin: 110px; color: #fcfcfc; padding: 60px;">
+          ようこそ、ながのCAKEへ！<br>
+          このサイトは、ケーキ販売のECサイトになります。<br>
+          会員でない方も商品の閲覧はできますが、<br>
+          購入には会員登録が必要になります。
+        </div>
+        <div style="background-color: #f5f5f5; padding-top: 20px;">
+          <h3>New Products</h3>
+          <% if @new_products.exists? %>
+            <div class="row no-padding card-wrapper">
+              <% @new_products.each do |product| %>
+              <div class="card w-25 shadow-lg">
+                <%= link_to product_path(product) do %>
+                  <%= image_tag product.get_product_image, size: "100x150", class: "card-img-top" %>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <p class="card-title text-black-50"><%= product.name %></p>
+                        <p class="card-text text-black-50">¥<%= product.price.to_s(:delimited) %></p>
                       </div>
-                  <% end %>
-                </div>
+                    </div>
+                  </div>
                 <% end %>
               </div>
+              <% end %>
             </div>
-          </div>
-
+          <% else %>
+            <p class="text-black-50">新着商品はありません</p>
+          <% end %>
         </div>
       </div>
       <p style="margin-top: 30px;"><%= link_to "全ての商品を見る>", products_path, class: "text-black-50 float-right" %></p>
-
-    </div>
   </div>
 </div>
