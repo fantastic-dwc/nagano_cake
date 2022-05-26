@@ -28,12 +28,6 @@ class Admin::GenresController < ApplicationController
     end
   end
 
-  def destroy
-    @genres = Genre.all
-    @genre = Genre.find(params[:id])
-    @genre.destroy
-  end
-
   private
 
   def genre_params
