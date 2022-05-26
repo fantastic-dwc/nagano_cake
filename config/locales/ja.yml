@@ -19,4 +19,28 @@ ja:
     time:
       formats:
         default: "%Y/%m/%d %H:%M:%S"
-    
+
+    activerecord:
+      attributes:
+        customer:
+          email: "Eメール"
+          password: "パスワード"
+          last_name: "姓"
+          first_name: "名"
+          last_name_kana: "セイ"
+          first_name_kana: "メイ"
+          postcode: "郵便番号"
+          address: "住所"
+          tel: "電話番号"
+        shipping_address:
+          postcode: "郵便番号"
+          address: "住所"
+          name: "宛名"
+        product:
+          name: "商品名"
+          introduction: "商品説明"
+          price: "税抜価格"
+          product_image: "商品画像"
+          genre: "ジャンル"
+        genre:
+         name: "ジャンル名"

@@ -1,7 +1,7 @@
 class Public::SearchesController < ApplicationController
 
   def search
-    @range = params[:range]
-    @products = Product.looks(params[:search], params[:word])
+    @content = params[:content]
+    @products = Product.search_for(@content)
   end
 end

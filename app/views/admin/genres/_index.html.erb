@@ -12,7 +12,9 @@
       <td></td>
       <td><%= genre.name %></td>
       <td></td>
-      <td><%= link_to "編集する", edit_admin_genre_path(genre.id), remote: true, class: "btn btn-outline-success" %></td>
+
+      <td><%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn btn-outline-success" %></td>
+     
     </tr>
     <% end %>
   </tbody>
