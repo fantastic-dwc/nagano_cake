@@ -1,21 +1,26 @@
-<h3>検索結果</h3>
-<% if @products.exists? %>
-  <table>
-    <thead>
-      <tr>
-        <th>商品名</th>
-        <th></th>
-        <th>価格</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @products.each do |product| %>
-      <tr>
-        <td><%= image_tag product.get_product_image, size: "50x50", class:"card-img-top" %></td>
-        <td><%= product.name %></td>
-        <td>¥<%= product.price.to_s(:delimited) %></td>
-      </tr>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <h2>Search Results</h2>
+      <% if @products.exists? %>
+        <div class="row no-padding card-wrapper">
+            <% @products.each do |product| %>
+              <div class="card shadow-lg m-2" style="width: 11.8rem;">
+              <%= link_to product_path(product) do %>
+                <%= image_tag product.get_product_image, size: "150x150", class: "card-img-top" %>
+                  <div class="card-body text-black-50">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <p class="card-title"><%= product.name %></p>
+                        <p class="card-text">¥<%= product.price.to_s(:delimited) %></p>
+                      </div>
+                    </div>
+                  </div>
+              <% end %>
+              </div>
+            <% end %>
+            </div>
       <% end %>
-    </tbody>
-  </table>
-<% end %>
+    </div>
+  </div>
+</div>
