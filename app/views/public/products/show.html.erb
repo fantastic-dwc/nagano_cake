@@ -14,7 +14,7 @@
                 <h6 class="text-black-50"><%= @product.introduction %></h6>
                 <div class="d-flex">
                   <h4>¥<%= (@product.price * 1.1).floor.to_s(:delimited) %></h4>
-                  <h7 class="text-black-50">　(税込)</h7>
+                  <span class="mt-1 text-black-50">　税込</span>
                 </div>
                 <% if @product.is_active == true %>
                   <p class="text-success">販売中</p>
