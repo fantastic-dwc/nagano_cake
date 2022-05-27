@@ -1,24 +1,24 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-12'><div class="margin: 50px;">
-      <h3>Edit Adderess</h3>
+      <h3><i class="fas fa-location-arrow"></i> Edit Adderess</h3>
         <%= render "/layouts/errors", obj: @shipping_address %>
         <div class="margin-top: 50px;">
         <%= form_with model: @shipping_address do |f| %>
-          <table class="table table-borderless" style= "margin-top: 50px;">
+          <table class="table" style= "margin-top: 50px;">
             <tbody>
               <tr>
                 <th style="width: 15%;">郵便番号(ハイフンなし)</th>
-                <th style="width: 40%"><%= f.text_field :postcode, placeholder: "0000000", class: "form-control col-3" %></th>
+                <td style="width: 40%"><%= f.text_field :postcode, placeholder: "0000000", class: "form-control col-3" %></td>
               </tr>
               <tr>
                 <th>住所</th>
-                <th><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町", class: "form-control" %></th>
+                <td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町", class: "form-control" %></td>
               </tr>
               <tr>
                 <th>宛名</th>
-                <th><%= f.text_field :name, placeholder: "令和道子", class: "form-control col-3" %></th>
-                <th><%= f.submit '変更内容を保存', class: "btn btn-outline-primary" %></th>
+                <td><%= f.text_field :name, placeholder: "令和道子", class: "form-control col-3" %></td>
+                <td><%= f.submit '変更内容を保存', class: "btn btn-outline-primary" %></td>
               </tr>
             </tbody>
           </table>
