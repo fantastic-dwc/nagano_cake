@@ -1,12 +1,12 @@
 <div class='container px-5 px-sm-0'>
   <div class='row'>
     <div class='col-md-12'>
-      <div class="m-5">
-        <h2>登録情報修正</h2>
+      <div class="mb-5">
+        <h2><i class="fas fa-pen-nib"></i> Edit Information</h2>
       </div>
       <%= render "/layouts/errors", obj: @customer %>
       <%= form_with model: @customer, url: {controller: 'public/customers', action: 'update'} do |f| %>
-       
+
         <div class="form-group row">
           <div class="col-md-2">名前</div>
             <%= f.label :last_name, "(姓)", class: "col-md-1" %>

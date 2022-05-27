@@ -1,7 +1,7 @@
 <div class=" mt-5 container px-5 px-sm-0" >
   <div class='row'>
     <div class='col-md-12'>
-      <h2 class="m-1">Order Information</h2>
+      <h2 class="m-1"><i class="fas fa-shopping-bag"></i> Order Information</h2>
       <h5>支払方法</h5>
       <%= form_with model: @order, url: confirm_path, method: :post do |f| %>
         <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>

@@ -2,28 +2,30 @@
   <div class='row'>
     <div class='col-md-12'>
       <div style= "margin: 50px;" >
-        <h3 style="margin-left: 50px;">Shipping Addresses</h3>
+        <h3><i class="fas fa-map-pin"></i> Shipping Addresses</h3>
         <%= render 'layouts/errors', obj: @shipping_address %>
         <%= form_with model: @shipping_address do |f| %>
-        <table  class="table table-borderless table-hover" style= "margin-top: 50px;">
+        <table  class="table table-hover" style= "margin-top: 50px;">
           <tbody>
             <tr>
               <th style="width: 15%;">郵便番号(ハイフンなし)</th>
-              <th style="width: 40%"><%= f.text_field :postcode, placeholder: "0000000", class: "form-control col-3" %></th>
+              <td style="width: 40%"><%= f.text_field :postcode, placeholder: "0000000", class: "form-control col-3" %></td>
             </tr>
             <tr>
               <th>住所</th>
-              <th><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町", class: "form-control" %></th>
+              <td><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町", class: "form-control" %></td>
             </tr>
             <tr>
               <th>宛名</th>
-              <th><%= f.text_field :name, placeholder: "令和道子", class: "form-control col-3" %></th>
-              <th><%= f.submit '新規登録', class: "btn btn-outline-primary" %></th>
+              <td class="d-flex">
+                <%= f.text_field :name, placeholder: "令和道子", class: "form-control col-3" %>
+                <%= f.submit '新規登録', class: "btn btn-outline-primary ml-3" %>
+              </td>
             </tr>
           </tbody>
         </table>
         <% end %>
-      
+
         <table class="table table-bordered table-background table-hover" style="width: 900px;">
           <thead>
             <tr>
