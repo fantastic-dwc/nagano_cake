@@ -13,3 +13,83 @@
  *= require_tree .
  *= require_self
  */
+
+@import "skippr";
+
+.image1 {
+  background-image: url(image1.jpeg);
+}
+.image2 {
+  background-image: url(image2.jpeg);
+}
+.image3 {
+  background-image: url(image3.jpeg);
+}
+.image4 {
+  background-image: url(image4.jpeg);
+}
+.image5 {
+  background-image: url(image5.jpeg);
+}
+
+#slide{
+  width: 700px;
+  height: 450px;
+}
+
+.field_with_errors {
+  display: contents;
+}
+#error_explanation {
+  color: red;
+}
+
+.pagination>li>a {
+  border: none;     /*枠線をなくす*/
+  color: #696969;/*文字の色を変える*/
+  margin-right: 10px;
+}
+.thank {
+  background-image: url(thank_you.jpeg);
+  background-repeat: no-repeat;
+  height: 500px;
+  background-position: center;
+  background-size: contain;
+ }
+
+ .order{
+   padding-top: 280px;
+   text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+ }
+h1 {
+  font-family: cursive;
+  color: #696969;
+}
+h2 {
+  font-family: cursive;
+  color: #696969;
+}
+h3 {
+  font-family: cursive;
+  color: #696969;
+}
+h4 {
+  font-family: cursive;
+}
+h5 {
+  font-family: cursive;
+  color: #696969;
+}
+
+li {
+  font-family: cursive;
+}
+
+th {
+  background-color: #DCDCDC;
+  color: #696969;
+}
+
+td {
+  color: #696969;
+}

@@ -1,0 +1,66 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <%= form_with model: @cart_product, url: cart_products_path, method: :post do |f| %>
+      <div class="row no-padding card-wrapper">
+        <div class="card shadow-lg" style="width: 80rem;">
+          <div class='row g-0'>
+            <div class="col-md-7">
+              <%= image_tag @product.get_product_image, class: "card-img-top" %>
+            </div>
+            <div class="col-md-5">
+              <div class="card-body justify-content-center">
+                <h4><%= @product.name %></h4>
+                <h6 class="text-black-50"><%= @product.introduction %></h6>
+                <div class="d-flex">
+                  <h4>¥<%= (@product.price * 1.1).floor.to_s(:delimited) %></h4>
+                  <span class="mt-1 text-black-50">　税込</span>
+                </div>
+                <% if @product.is_active == true %>
+                  <p class="text-success">販売中</p>
+                  <% if customer_signed_in? %>
+                    <%= f.hidden_field :product_id, :value => @product.id %>
+                    <%= f.select :quantity, *[1..10], include_blank: "選択してください" %>
+                    <%= f.submit 'カートに入れる', class: "btn btn-dark" %>
+                    <%= render "/layouts/errors", obj: @cart_product %>
+                  <% else %>
+                    <h7>ご購入を希望の方は<%= link_to "こちら", new_customer_session_path %>からログインしてください。</h7>
+                    <h7>会員登録がまだの方は<%= link_to "こちら", new_customer_registration_path %>から新規登録してください。</h7>
+                  <% end %>
+                <% else %>
+                  <p class="text-danger">現在販売しておりません</p>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="row">
+    <div class='col-md-12 d-flex align-items-start'>
+      <div style="padding-top: 15px;">
+        <h5 class="d-flex">Others ( genre: <%= @product.genre.name %> )</h5>
+        <div class="row no-padding card-wrapper">
+          <% @same_genre_products.each do |product| %>
+          <div class="card shadow-lg m-2" style="width: 11.8rem;">
+            <%= link_to product_path(product) do %>
+              <%= image_tag product.get_product_image, size: "100x150", class: "card-img-top" %>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <p class="card-title text-black-50"><%= product.name %></p>
+                      <p class="card-text text-black-50">¥<%= product.price.to_s(:delimited) %></p>
+                    </div>
+                  </div>
+                </div>
+            <% end %>
+          </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top: 30px;"><%= link_to "全ての商品を見る>", products_path, class: "text-black-50 float-right" %></p>
+  </div>
+</div>

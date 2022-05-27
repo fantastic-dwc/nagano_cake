@@ -1,0 +1,31 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>商品名</th>
+      <th>単価(税込)</th>
+      <th>数量</th>
+      <th colspan="4">小計</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% cart_products.each do |cart_product| %>
+      <tr>
+        <td>
+          <%= image_tag cart_product.product.get_product_image, size: '50x50' %>
+          <%= cart_product.product.name %>
+        </td>
+        <td>¥<%= cart_product.product.with_tax_price.to_s(:delimited) %></td>
+        <td>
+          <%= form_with model: cart_product, method: :patch do |f| %>
+            <%= f.select :quantity, *[1..10] %>
+            <%= f.submit "変更", class: "btn btn-outline-success" %>
+          <% end %>
+        </td>
+        <td>¥<%= cart_product.subtotal.to_s(:delimited) %></td>
+        <td>
+          <%= link_to "削除する", cart_product_path(cart_product), method: :delete, class: "btn btn-outline-danger" %>
+        </td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>

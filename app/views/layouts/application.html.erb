@@ -3,14 +3,29 @@
   <head>
     <title>NaganoCake</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= stylesheet_link_tag "application", :media => "all" %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
+  <body style="display: flex; flex-flow: column; min-height: 100vh; ">
+    <% if customer_signed_in? %>
+      <%= render 'layouts/login_customer_header' %>
+    <% elsif admin_signed_in? %>
+      <%= render 'layouts/admin_header' %>
+    <% else %>
+      <%= render 'layouts/customer_header' %>
+    <% end %>
+  <main style="flex: 1; background-color: #f5f5f5; padding-bottom: 50px; padding-top: 50px;">
+    <div id="flash-success">
+      <% if notice %>
+      <p id="notice" class="text-secondary text-center"><%= notice %></p>
+      <% end %>
     <%= yield %>
+  </main>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

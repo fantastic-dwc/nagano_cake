@@ -1,0 +1,78 @@
+<div class="mt-5 container">
+  <h3><%= @customer.last_name %> <%= @customer.first_name %>さんの会員情報編集</h3>
+  <%= render 'layouts/errors', obj: @customer %>
+   <%= form_with model: @customer, url: {controller: 'admin/customers', action: 'update' } do |customer| %>
+       <div class="form-group row">
+        <div class="col-sm-2">
+         <%= customer.label :id,"会員ID" %>
+        </div>
+        <div class="col-sm-10">
+         <%= @customer.id %>
+        </div>
+       </div>
+       <div class="form-group row">
+        <div class="col-sm-2">
+        <%= customer.label :last_name,"氏名" %>
+        </div>
+        <div class="col-sm-10">
+        <%= customer.text_field :last_name %>
+        <%= customer.text_field :first_name %>
+        </div>
+       </div>
+       <div class="form-group row">
+        <div class="col-sm-2">
+         <%= customer.label :last_name_kana,"フリガナ" %>
+        </div>
+        <div class="col-sm-10">
+         <%= customer.text_field :last_name_kana %>
+         <%= customer.text_field :first_name_kana %>
+        </div>
+       </div>
+       <div class="form-group row">
+        <div class="col-sm-2">
+         <%= customer.label :postcode,"郵便番号" %>
+        </div>
+        <div class="col-sm-10">
+         <%= customer.text_field :postcode %>
+        </div>
+       </div>
+       <div class="form-group row">
+        <div class="col-sm-2">
+         <%= customer.label :address,"住所" %>
+        </div>
+        <div class="col-sm-10">
+         <%= customer.text_field :address %>
+        </div>
+       </div>
+       <div class="form-group row">
+        <div class="col-sm-2">
+         <%= customer.label :tel,"電話番号" %>
+        </div>
+        <div class="col-sm-10">
+         <%= customer.telephone_field :tel %>
+        </div>
+       </div>
+       <div class="form-group row">
+        <div class="col-sm-2">
+         <%= customer.label :email,"メールアドレス" %>
+        </div>
+        <div class="col-sm-10">
+         <%= customer.email_field :email %>
+        </div>
+       </div>
+       <div class="form-group row">
+        <div class="col-sm-2">
+         <%= customer.label :is_deleted, "会員ステータス" %>
+        </div>
+        <div class="col-sm-10">
+         <%= customer.radio_button :is_deleted, :false %>
+         <%= customer.label :is_deleted, "有効", class: "text-success font-weight-bold" %>
+         <%= customer.radio_button :is_deleted, :true %>
+         <%= customer.label :is_deleted, "退会", class: "text-secondary" %>
+        </div>
+       </div>
+           <%= button_tag type: "submit", class: "btn btn-outline-success" do %>
+            変更を保存
+           <% end %>
+   <% end %>
+</div>

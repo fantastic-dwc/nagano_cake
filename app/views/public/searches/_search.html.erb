@@ -1,0 +1,6 @@
+<%= form_with url: search_path, local: true, method: :get do |f| %>
+  <%= f.text_field :content, placeholder: "Search", style: "border: none" %>
+  <%= button_tag type: "submit", class: "btn btn-outline-light" do %>
+    <i class="fas fa-search"></i>
+  <% end %>
+<% end %>

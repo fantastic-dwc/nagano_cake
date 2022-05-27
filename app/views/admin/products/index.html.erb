@@ -1,0 +1,41 @@
+<div class='container mt-5'>
+  <div class="row">
+      
+
+      <h3 class="mr-2">商品一覧</h3>
+      <div>
+        <%= link_to '+', new_admin_product_path, class: 'btn btn-outline-dark' %>
+      </div>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>商品ID</th>
+            <th>商品名</th>
+            <th>税抜価格</th>
+            <th>ジャンル</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @products.each do |f| %>
+          <tr onclick='window.location="<%= '/admin/products/' + f.id.to_s %>"' role="link" >
+            <td><%= f.id %></td>
+            <td><%= f.name %></td>
+            <td>¥<%= f.price.to_s(:delimited) %></td>
+            <td><%= f.genre.name %></td>
+            <td align="left">
+              <% if f.is_active %>
+                <span>販売中</span>
+              <% else %>
+                <span>販売停止中</span>
+              <% end %>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+      <div class="pagination"><%= paginate @products %></div>
+
+  </div>
+</div>

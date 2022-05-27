@@ -1,0 +1,36 @@
+<div class='container px-5 px-sm-0'>
+  <div class='row'>
+    <div class='col-md-12'>
+      <div style="margin: 50px;">
+        <div class="d-flex justify-content-between">
+          <h2><i class="fas fa-shopping-cart"></i> CART</h2>
+          <% if @cart_products.exists? %>
+          <div><%= link_to "カートを空にする",  cart_product_destroy_all_path(current_customer.cart_products), method: :delete, class: "btn btn-outline-danger" %></div>
+          <% end %>
+        </div>
+        <div style="margin-top: 30px;">
+          <%= render 'cart_products', cart_products: @cart_products %>
+        </div>
+        <div class="d-flex justify-content-between">
+          <div>
+            <%= link_to "買い物を続ける", root_path, class: "btn btn-outline-primary" %>
+          </div>
+          <div>
+            <table class="table table-bordered">
+              <tr>
+                <th>合計金額</th>
+                <td>¥<%= @total_price.to_s(:delimited) %></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <% if @cart_products.exists? %>
+        <div class="d-flex justify-content-center">
+          <%= link_to "情報入力に進む", new_order_path, class: "btn btn-outline-success" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
