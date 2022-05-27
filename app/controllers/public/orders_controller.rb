@@ -48,7 +48,7 @@ class Public::OrdersController < ApplicationController
     @fee = 800
     @order.shipping_fee = @fee
     if params[:order][:select_address] == "0"
-      @order.name = current_customer.first_name + current_customer.last_name
+      @order.name = current_customer.last_name + current_customer.first_name
       @order.postcode = current_customer.postcode
       @order.address = current_customer.address
     elsif params[:order][:select_address] == "1"

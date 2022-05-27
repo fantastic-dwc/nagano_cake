@@ -3,7 +3,7 @@
     <div class='col-md-12'>
       <div style="margin: 50px;">
         <div class="d-flex justify-content-between">
-          <h2>CART</h2>
+          <h2><i class="fas fa-shopping-cart"></i> CART</h2>
           <% if @cart_products.exists? %>
           <div><%= link_to "カートを空にする",  cart_product_destroy_all_path(current_customer.cart_products), method: :delete, class: "btn btn-outline-danger" %></div>
           <% end %>
